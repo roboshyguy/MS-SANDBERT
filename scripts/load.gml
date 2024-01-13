@@ -22,14 +22,14 @@ sprite_change_offset("walljump", 40, 54);//correct
 //sprite_change_offset("landinglag", 16, 31);
 
 sprite_change_offset("parry", 31, 47);//correct
-//sprite_change_offset("roll_forward", 32, 47);
-//sprite_change_offset("roll_backward", 32, 47);
+sprite_change_offset("roll_forward", 32, 47);//correct
+sprite_change_offset("roll_backward", 32, 47);//correct
 //sprite_change_offset("airdodge", 16, 31);
 sprite_change_offset("waveland", 36, 53);//correct
-//sprite_change_offset("tech", 16, 31);
+sprite_change_offset("tech", 32, 47);//correct
 
 //sprite_change_offset("jab", 32, 47, true);
-sprite_change_offset("dattack", 36, 60, true);//correct
+sprite_change_offset("dattack", 34, 60, true);//correct
 sprite_change_offset("ftilt", 17, 48, true);//correct
 sprite_change_offset("dtilt", 76, 91, true);//correct
 sprite_change_offset("utilt", 42, 70, true);//correct

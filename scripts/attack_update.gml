@@ -91,6 +91,7 @@ switch(attack){
 	break;
 	
 	case AT_FSTRONG:
+		hud_offset = 20;
 	if(window == 2){
 		switch(window_timer){
 			case 1:

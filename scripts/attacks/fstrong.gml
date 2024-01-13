@@ -23,7 +23,7 @@ set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX, asset_get("sfx_swipe_heavy1"));
 set_window_value(AT_FSTRONG, 2, AG_WINDOW_SFX_FRAME, 4);
 
 //endlag
-set_window_value(AT_FSTRONG, 3, AG_WINDOW_LENGTH, 30);
+set_window_value(AT_FSTRONG, 3, AG_WINDOW_LENGTH, 35);
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_ANIM_FRAMES, 10);
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 22);
 set_window_value(AT_FSTRONG, 3, AG_WINDOW_HAS_SFX, 1);
