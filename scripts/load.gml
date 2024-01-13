@@ -44,3 +44,5 @@ sprite_change_offset("dspecial", 32, 47, true);
 sprite_change_offset("taunt", 16, 31);
 
 sprite_change_offset("plat", 32, 47);
+
+set_victory_theme(sound_get("lipstickBow"));
