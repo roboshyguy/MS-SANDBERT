@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert U-Tilt by Chmmr  //
+//////////////////////////////////////
+
 set_attack_value(AT_UTILT, AG_SPRITE, sprite_get("utilt"));
 set_attack_value(AT_UTILT, AG_NUM_WINDOWS, 4);
 set_attack_value(AT_UTILT, AG_HURTBOX_SPRITE, sprite_get("utilt_hurt"));
@@ -42,6 +46,7 @@ set_hitbox_value(AT_UTILT, 1, HG_KNOCKBACK_SCALING, .45);
 set_hitbox_value(AT_UTILT, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_UTILT, 1, HG_HITPAUSE_SCALING, .3);
 set_hitbox_value(AT_UTILT, 1, HG_HIT_SFX, asset_get("sfx_blow_medium3"));
+set_hitbox_value(AT_UTILT, 1, HG_VISUAL_EFFECT, bow_vfx_small);
 
 set_hitbox_value(AT_UTILT, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UTILT, 2, HG_WINDOW, 3);
@@ -58,6 +63,7 @@ set_hitbox_value(AT_UTILT, 2, HG_KNOCKBACK_SCALING, .4);
 set_hitbox_value(AT_UTILT, 2, HG_BASE_HITPAUSE, 4);
 set_hitbox_value(AT_UTILT, 2, HG_HITPAUSE_SCALING, .15);
 set_hitbox_value(AT_UTILT, 2, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
+set_hitbox_value(AT_UTILT, 2, HG_VISUAL_EFFECT, bow_vfx_small);
 
 set_hitbox_value(AT_UTILT, 3, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UTILT, 3, HG_WINDOW, 3);
@@ -75,3 +81,4 @@ set_hitbox_value(AT_UTILT, 3, HG_KNOCKBACK_SCALING, .4);
 set_hitbox_value(AT_UTILT, 3, HG_BASE_HITPAUSE, 4);
 set_hitbox_value(AT_UTILT, 3, HG_HITPAUSE_SCALING, .15);
 set_hitbox_value(AT_UTILT, 3, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
+set_hitbox_value(AT_UTILT, 3, HG_VISUAL_EFFECT, bow_vfx_small);

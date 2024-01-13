@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert D-Tilt by roboshyguy  //
+//////////////////////////////////////
+
 set_attack_value(AT_DTILT, AG_SPRITE, sprite_get("dtilt"));
 set_attack_value(AT_DTILT, AG_NUM_WINDOWS, 11);
 set_attack_value(AT_DTILT, AG_HURTBOX_SPRITE, sprite_get("dtilt_hurt"));
@@ -94,7 +98,7 @@ set_hitbox_value(AT_DTILT, 1, HG_BASE_KNOCKBACK, 5);
 set_hitbox_value(AT_DTILT, 1, HG_KNOCKBACK_SCALING, .2);
 set_hitbox_value(AT_DTILT, 1, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_DTILT, 1, HG_HITPAUSE_SCALING, .5);
-set_hitbox_value(AT_DTILT, 1, HG_VISUAL_EFFECT, 304);
+set_hitbox_value(AT_DTILT, 1, HG_VISUAL_EFFECT, bow_vfx_big);
 set_hitbox_value(AT_DTILT, 1, HG_TECHABLE, 1);
 set_hitbox_value(AT_DTILT, 1, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
 set_hitbox_value(AT_DTILT, 1, HG_HITBOX_GROUP, 1);

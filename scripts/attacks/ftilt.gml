@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert F-Tilt by DinoBros  //
+//////////////////////////////////////
+
 curr_attack = AT_FTILT;
 
 set_attack_value(curr_attack, AG_CATEGORY, 2);

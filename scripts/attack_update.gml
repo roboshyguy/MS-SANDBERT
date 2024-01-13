@@ -7,6 +7,10 @@ switch(attack){
 		trigger_b_reverse();
 		break;
 		
+	case AT_UTILT:
+	hud_offset = 40;
+	break;
+		
 	case AT_DTILT:
 	
 		hud_offset = 20;
@@ -76,6 +80,22 @@ switch(attack){
 		set_state(PS_IDLE);
 		}else{
 		set_state(PS_PRATFALL);	
+		}
+	}
+	break;
+	
+	case AT_UAIR:
+	if(window == 2){
+		hud_offset = 100;
+	}
+	break;
+	
+	case AT_FSTRONG:
+	if(window == 2){
+		switch(window_timer){
+			case 1:
+			sound_play(asset_get("sfx_boss_laser"));
+			break;
 		}
 	}
 	break;

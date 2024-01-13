@@ -83,6 +83,8 @@ spr_example = sprite_get("example"); // sprites/example_stripX.png
 sfx_parry = asset_get("mfx_star"); 
 
 // VFX
+bow_vfx_small = hit_fx_create(sprite_get("vfx_small"), 18);
+bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 
 // Variables
 times_stomped = 0;
@@ -156,8 +158,8 @@ air_hurtbox_spr     = -1; // -1 = use hurtbox_spr
 hitstun_hurtbox_spr = -1; // -1 = use hurtbox_spr
 
 // Victory
-set_victory_bg(sprite_get("victory_background")); // victory_background.png
-set_victory_theme(sound_get("victory_theme")); // victory_theme.ogg
+//set_victory_bg(sprite_get("victory_background")); // victory_background.png
+set_victory_theme(sound_get("lipstickBow")); // victory_theme.ogg
 
 // Movement SFX
 land_sound          = asset_get("sfx_land_light");

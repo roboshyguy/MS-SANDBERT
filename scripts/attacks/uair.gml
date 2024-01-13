@@ -60,7 +60,7 @@ set_hitbox_value(AT_UAIR, 1, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_UAIR, 1, HG_HITPAUSE_SCALING, .8);
 set_hitbox_value(AT_UAIR, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 1, HG_HIT_SFX, asset_get("sfx_blow_heavy2"));
-set_hitbox_value(AT_UAIR, 1, HG_VISUAL_EFFECT, 304);
+set_hitbox_value(AT_UAIR, 1, HG_VISUAL_EFFECT, bow_vfx_big);
 
 // hitbox 2 (top)
 set_hitbox_value(AT_UAIR, 2, HG_HITBOX_TYPE, 1);
@@ -80,7 +80,7 @@ set_hitbox_value(AT_UAIR, 2, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_UAIR, 2, HG_HITPAUSE_SCALING, .8);
 set_hitbox_value(AT_UAIR, 2, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 2, HG_HIT_SFX, asset_get("sfx_blow_heavy2"));
-set_hitbox_value(AT_UAIR, 2, HG_VISUAL_EFFECT, 304);
+set_hitbox_value(AT_UAIR, 2, HG_VISUAL_EFFECT, bow_vfx_big);
 
 // hitbox 3 (top small) a bit weaker btw
 set_hitbox_value(AT_UAIR, 3, HG_HITBOX_TYPE, 1);
@@ -99,6 +99,7 @@ set_hitbox_value(AT_UAIR, 3, HG_BASE_HITPAUSE, 9);
 set_hitbox_value(AT_UAIR, 3, HG_HITPAUSE_SCALING, .7);
 set_hitbox_value(AT_UAIR, 3, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 3, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
+set_hitbox_value(AT_UAIR, 3, HG_VISUAL_EFFECT, bow_vfx_small);
 
 // hitbox 4 (left side) a bit weaker btw
 set_hitbox_value(AT_UAIR, 4, HG_HITBOX_TYPE, 1);
@@ -117,3 +118,4 @@ set_hitbox_value(AT_UAIR, 4, HG_BASE_HITPAUSE, 9);
 set_hitbox_value(AT_UAIR, 4, HG_HITPAUSE_SCALING, .7);
 set_hitbox_value(AT_UAIR, 4, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 4, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
+set_hitbox_value(AT_UAIR, 4, HG_VISUAL_EFFECT, bow_vfx_small);
