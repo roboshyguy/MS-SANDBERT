@@ -19,7 +19,7 @@
 // STAT NAME		VALUE       BASECAST RANGE   NOTES
 
 // Physical size
-char_height         = 52;       //                  not zetterburn's. this is just cosmetic anyway
+char_height         = 58;       //                  not zetterburn's. this is just cosmetic anyway
 knockback_adj       = 1;		// 0.9  -  1.2
 
 // Ground movement
@@ -80,27 +80,18 @@ spr_nspecial_proj = sprite_get("nspecial_proj");
 spr_example = sprite_get("example"); // sprites/example_stripX.png
 
 // SFX
-sfx_dbfz_kame_charge = sound_get("ARC_BTL_GKN_Kamehame_Chrg");
-sfx_dbfz_kame_fire = sound_get("ARC_BTL_GKN_Kamehame_Fire");
-sfx_dbfz_hit_weak = sound_get("ARC_BTL_CMN_Hit_Small-A");
-sfx_dbfz_hit_broken = sound_get("ARC_BTL_CMN_Hit_XLarge");
-sfx_dbfz_hit_jab3 = sound_get("ARC_BTL_GKN_Atk5A_3rd_Hit");
+sfx_parry = asset_get("mfx_star"); 
 
 // VFX
-vfx_ftilt_destroy = hit_fx_create(sprite_get("vfx_ftilt_destroy"), 12); // actually for nspecial, not ftilt
-vfx_nspecial_fire = hit_fx_create(sprite_get("vfx_nspecial_fire"), 16);
 
 // Variables
-has_goku_beam = true;
-doing_goku_beam = false;
-beam_newest_hbox = noone;
-
+times_stomped = 0;
 
 
 // Animation Info
 
 // Misc. animation speeds
-idle_anim_speed     = 0.1;
+idle_anim_speed     = 0.13;
 crouch_anim_speed   = 0.1;
 walk_anim_speed     = 0.125;
 dash_anim_speed     = 0.2;
@@ -108,13 +99,13 @@ pratfall_anim_speed = 0.25;
 
 // Jumps
 double_jump_time    = 20;		// 24   -  40
-walljump_time       = 18;		// 18   -  32
-wall_frames         = 2;		// may or may not actually work... dan pls
+walljump_time       = 26;		// 18   -  32
+wall_frames         = 3;		// may or may not actually work... dan pls
 
 // Parry
 dodge_startup_frames    = 1;
 dodge_active_frames     = 2;
-dodge_recovery_frames   = 3;
+dodge_recovery_frames   = 6;
 
 // Tech
 tech_active_frames      = 3;
