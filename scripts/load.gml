@@ -21,7 +21,7 @@ sprite_change_offset("walljump", 40, 54);//correct
 //sprite_change_offset("land", 16, 31);
 //sprite_change_offset("landinglag", 16, 31);
 
-sprite_change_offset("parry", 31, 47);//correct
+sprite_change_offset("parry", 32, 47);//correct
 sprite_change_offset("roll_forward", 32, 47);//correct
 sprite_change_offset("roll_backward", 32, 47);//correct
 //sprite_change_offset("airdodge", 16, 31);

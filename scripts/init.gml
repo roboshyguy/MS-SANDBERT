@@ -106,12 +106,12 @@ wall_frames         = 3;		// may or may not actually work... dan pls
 
 // Parry
 dodge_startup_frames = 1;
-dodge_active_frames = 1;
-dodge_recovery_frames = 7;
+dodge_active_frames = 2;
+dodge_recovery_frames = 6;
 
 // Tech
-tech_active_frames = 2;
-tech_recovery_frames = 3;
+tech_active_frames = 3;
+tech_recovery_frames = 2;
 
 // Tech roll
 techroll_startup_frames = 1;
