@@ -124,6 +124,20 @@ switch(attack){
 	if (window == 10 && window_timer == 0 && !hitpause){
 		sound_play(asset_get("sfx_zetter_downb"));
 	}
+	if (window == 8 || window == 9){
+		can_fast_fall = false;
+	}
+	if (window == 9){
+		nair_loop_timer++;
+		if (nair_loop_timer >= 12 && !was_parried && !hitpause){
+			can_shield = true;
+			can_jump = true;
+		}
+	} else {
+		can_shield = false;
+		can_jump = false;
+		nair_loop_timer = 0;
+	}
 	if (window > 7 && window <= 11){
 		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
 		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
