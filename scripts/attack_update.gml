@@ -99,6 +99,38 @@ switch(attack){
 			break;
 		}
 	}
+	case AT_NAIR:
+	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
+		switch (window){
+			case 2:
+			vsp = -2;
+			break;
+			case 4:
+			vsp = -4;
+			break;
+			case 6:
+			vsp = -4;
+			break;
+		}
+	}
+	with (pHitBox) if (player_id == other && hbox_num >= 17 && hbox_num <= 19 && attack == AT_NAIR){
+		if (!player_id.free){
+			destroyed = true;
+		}
+	}
+	if (window == 7 && window_timer == 12 && !hitpause){
+		sound_play(asset_get("sfx_swipe_heavy2"));
+	}
+	if (window == 10 && window_timer == 0 && !hitpause){
+		sound_play(asset_get("sfx_zetter_downb"));
+	}
+	if (window > 7 && window <= 11){
+		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
+		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
+	} else {
+		reset_attack_value(AT_NAIR, AG_CATEGORY);
+		reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
+	}
 	break;
 }
 
@@ -114,7 +146,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
+var dir = argument_count > 3 ? argument[3] : 0;
 
 switch (name) {
     default: 
