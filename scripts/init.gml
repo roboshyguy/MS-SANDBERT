@@ -89,13 +89,15 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 // Variables
 times_stomped = 0;
 
-//dspecial start
 dspecial_absorb_count = 0;
 
 dspecial_damage_multiplier = 2.75; //technically these arent multipliers but shhh i dont feel like rewriting the variable names
 dspecial_bkb_multiplier = 2.8;
 dspecial_kbs_multiplier = 2.75;
-//dspecial end
+
+bag_taunt = 0;
+bag_taunt_max = 1;
+taunt_icon = 0;
 
 
 // Animation Info
@@ -166,7 +168,7 @@ air_hurtbox_spr     = -1; // -1 = use hurtbox_spr
 hitstun_hurtbox_spr = -1; // -1 = use hurtbox_spr
 
 // Victory
-//set_victory_bg(sprite_get("victory_background")); // victory_background.png
+set_victory_bg(sprite_get("victory_bg")); // victory_background.png
 set_victory_theme(sound_get("lipstickBow")); // victory_theme.ogg
 
 // Movement SFX
