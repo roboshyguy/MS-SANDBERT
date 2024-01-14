@@ -1,6 +1,7 @@
 // Draw the appropriate portrait
 draw_sprite_ext(sprite_get("charselect" + string(selected_css_portrait)), 0, x + 8, y + 8, 2, 2, 0, c_white, 1);
 
+currAlt = get_player_color(player);
 
 // Draw the buttons
 
