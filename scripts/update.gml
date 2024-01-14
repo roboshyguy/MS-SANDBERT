@@ -16,7 +16,7 @@ if(state == PS_CROUCH){
     }
 }
 //randomized portraits
-if (get_gameplay_time() = 20){
+if(get_gameplay_time() % 90 == 0){
     portrait_rng = random_func(0, 14, true);
     switch(portrait_rng){
         case 0:

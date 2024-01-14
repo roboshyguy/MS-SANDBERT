@@ -11,16 +11,16 @@ sprite_change_offset("crouch", 32, 41);
 sprite_change_offset("crouch_hurtbox", 46, 26);
 sprite_change_offset("walk", 34, 54);
 //sprite_change_offset("walkturn", 16, 31);
-//sprite_change_offset("dash", 16, 31);
-//sprite_change_offset("dashstart", 16, 31);
-//sprite_change_offset("dashstop", 16, 31);
-//sprite_change_offset("dashturn", 16, 31);
+sprite_change_offset("dash", 34, 43);//correct
+sprite_change_offset("dashstart", 34, 43);//correct
+sprite_change_offset("dashstop", 34, 43);//correct
+sprite_change_offset("dashturn", 34, 43);//correct
 
-//sprite_change_offset("jumpstart", 16, 31);
-//sprite_change_offset("jump", 16, 47);
-//sprite_change_offset("doublejump", 16, 31);
+sprite_change_offset("jumpstart", 32, 47);//correct
+sprite_change_offset("jump", 32, 47);//correct
+sprite_change_offset("doublejump", 32, 47);//correct
 sprite_change_offset("walljump", 40, 54);//correct
-//sprite_change_offset("pratfall", 16, 31);
+sprite_change_offset("pratfall", 42, 57);//correct
 sprite_change_offset("land", 30, 54);//correct
 sprite_change_offset("landinglag", 30, 54);//correct
 
@@ -46,7 +46,7 @@ sprite_change_offset("fstrong", 47, 63, true);//correct
 sprite_change_offset("dstrong", 80, 57, true);//correct
 //sprite_change_offset("nspecial", 32, 47, true);
 //sprite_change_offset("fspecial", 32, 47, true);
-//sprite_change_offset("uspecial", 32, 47, true);
+sprite_change_offset("uspecial", 42, 57, true);//correct
 sprite_change_offset("dspecial", 32, 60, true);//correct
 sprite_change_offset("dspecial_2", 32, 60, true);//correct
 sprite_change_offset("dspecial_proj", 27, 40);//correct

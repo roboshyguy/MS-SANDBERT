@@ -29,14 +29,14 @@ switch(attack){
 	if(!was_parried){
 	if(window == 4 or window == 3){
 		if(times_stomped < 4){
-		if(attack_pressed){
+		if(is_attack_pressed(DIR_ANY) or down_strong_pressed){
 			clear_button_buffer( PC_ATTACK_PRESSED );
 			set_window_value(AT_DTILT, 4, AG_WINDOW_GOTO, 6);
 			}	
 		}
 	}if(window == 9 or window == 8){
 		if(times_stomped < 4){
-		if(attack_pressed){
+		if(is_attack_pressed(DIR_ANY) or down_strong_pressed){
 			clear_button_buffer( PC_ATTACK_PRESSED );
 			set_window_value(AT_DTILT, 9, AG_WINDOW_GOTO, 11);
 			}	
@@ -305,6 +305,13 @@ switch(attack){
             }
         }
     }
+	break;
+	
+	case AT_USPECIAL:
+	hud_offset = 50;
+	can_fast_fall = false;
+	can_move = false;
+	can_wall_jump = true;
 	break;
 	
 	case AT_TAUNT:
