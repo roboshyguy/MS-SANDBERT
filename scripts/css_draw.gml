@@ -5,7 +5,7 @@ currAlt = get_player_color(player);
 switch (currAlt)
 {
     // nyaw alt
-    case 19:
+    case 20:
         prepare_shader();
         shader_end();
 		FlagPart(make_colour_rgb(85, 205, 252), portraitSprite, 1, 0); // mayablue

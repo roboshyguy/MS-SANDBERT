@@ -89,6 +89,8 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 // Variables
 times_stomped = 0;
 
+nspecial_charge = 0;
+
 dspecial_absorb_count = 0;
 
 dspecial_damage_multiplier = 2.75; //technically these arent multipliers but shhh i dont feel like rewriting the variable names
@@ -105,6 +107,14 @@ wait_sprite = sprite_get("idle_wait");
 
 miiverse_post = sprite_get("miiverse");
 
+pot_compat_variable = sprite_get("pumbo_compat");
+pot_compat_text = "Cobblestone Pie";
+
+mamizou_transform_spr = sprite_get("mamizou_compat"); 
+
+bbc_msg = "The biggest collab in workshop history, Mrs. Sandbert was 
+made by 30+ talented devs. WORKSHOP IS SAVED BABYYYY!!!!"
+
 
 // Animation Info
 
@@ -116,7 +126,7 @@ dash_anim_speed     = 0.2;
 pratfall_anim_speed = 0.25;
 
 // Jumps
-double_jump_time    = 20;		// 24   -  40
+double_jump_time    = 32;		// 24   -  40
 walljump_time       = 26;		// 18   -  32
 wall_frames         = 3;		// may or may not actually work... dan pls
 

@@ -14,7 +14,7 @@ sprite_change_offset("walk", 34, 54);//correct
 sprite_change_offset("walkturn", 30, 60);//correct
 sprite_change_offset("dash", 34, 43);//correct
 sprite_change_offset("dash_hurtbox", 34, 44);//correct
-sprite_change_offset("dashstart", 34, 43);//correct
+sprite_change_offset("dashstart", 34, 45);//correct
 sprite_change_offset("dashstop", 34, 43);//correct
 sprite_change_offset("dashturn", 34, 43);//correct
 
@@ -47,6 +47,9 @@ sprite_change_offset("fstrong", 47, 63, true);//correct
 sprite_change_offset("ustrong", 65, 84, true);//correct
 sprite_change_offset("dstrong", 80, 57, true);//correct
 sprite_change_offset("nspecial", 102, 118, true);//correct
+sprite_change_offset("nspecial_red", 28, 7);//
+sprite_change_offset("nspecial_blue", 39, 18);//
+sprite_change_offset("nspecial_purple", 85, 12);//
 //sprite_change_offset("fspecial", 32, 47, true);
 sprite_change_offset("uspecial", 42, 57, true);//correct
 sprite_change_offset("dspecial", 32, 60, true);//correct
@@ -61,7 +64,7 @@ sprite_change_offset("vfx", 118, 118);//correct
 sprite_change_offset("plat_behind", 104, 104);//correct
 
 sprite_change_offset("bow", 16, 16);
-sprite_change_offset("bag_taunt", 34, 48, true);
+sprite_change_offset("bag_taunt", 33, 48, true);
 sprite_change_offset("taunt_icons", 7, 15, true);
 
 sprite_change_offset("thumbtaunt", 55, 70, true);//correct

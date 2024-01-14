@@ -29,6 +29,7 @@ switch(attack){
 	case AT_FTILT:
 	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)-1)){
 	sound_play(sound_get("sfx_snap"));	
+	var _snap = spawn_hit_fx( x + spr_dir * 110, y - 40, 305 );
 	}
 	break;
 		
@@ -390,6 +391,80 @@ switch(attack){
     }
 	break;
 	
+	case AT_USPECIAL:
+	trigger_wavebounce();
+	hud_offset = 50;
+	if(window != 3){
+	can_fast_fall = false;
+	can_move = false;
+	can_wall_jump = true;
+	}else{
+	can_fast_fall = true;
+	can_move = true;
+	can_wall_jump = true;		
+	}
+	break;
+	
+	case AT_NSPECIAL:
+	trigger_wavebounce();
+	if(window == 1 && window_timer == 1){
+		nspecial_charge = 0;
+	}
+	
+	//charge
+	if((window == 2 or window == 3 or window == 4) && window_timer == 2){
+		if(nspecial_charge == 0){
+		sound_play(asset_get("sfx_abyss_hex_curse"));
+		}if(nspecial_charge == 2){
+			spawn_hit_fx(x, y-30, 301);
+		sound_play(asset_get("sfx_frog_dstrong"));
+		}if(nspecial_charge == 4){
+			spawn_hit_fx(x, y-30, 304);
+		sound_play(asset_get("sfx_frog_dspecial_swallow"));
+		}
+		print("test");
+		nspecial_charge += 1;
+	}
+	
+	if(window == 2 && get_window_value(AT_NSPECIAL, 2, AG_WINDOW_LENGTH)-1){
+		if(nspecial_charge < 2){
+			window_timer = 1;
+		}
+	}
+	if(window == 3 && get_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH)-1){
+		if(nspecial_charge < 4){
+			window_timer = 1;
+		}else{
+			
+		}
+	}
+	
+	//release
+	if(window == 2 or window == 3){
+		if(!special_down){
+			window = 5;
+			window_timer = 0;
+		}
+	}
+	
+	//create hitbox
+	if(window == 5 && window_time_is(4)){
+		sound_play(asset_get("sfx_abyss_hazard_burst"));
+		sound_play(sound_get("sfx_snap"));
+		spawn_hit_fx(x + spr_dir * 55, y-35, 301);
+		if(nspecial_charge < 3){
+			move_cooldown[AT_NSPECIAL] = 60;
+			create_hitbox(AT_NSPECIAL, 1, x + spr_dir * 55, y - 35);
+		}if(nspecial_charge >= 3 && nspecial_charge < 5){
+			move_cooldown[AT_NSPECIAL] = 120;
+			create_hitbox(AT_NSPECIAL, 2, x + spr_dir * 55, y - 35);			
+		}if(nspecial_charge >= 5){
+			move_cooldown[AT_NSPECIAL] = 120;
+			create_hitbox(AT_NSPECIAL, 3, x + spr_dir * 55, y - 35);			
+		}
+	}
+	break;
+
 	case AT_TAUNT:
 	if(window == 1){
 		switch(window_timer){
@@ -484,3 +559,13 @@ return newdust;
     return window_timer == frame and !hitpause
 // DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
 // #endregion
+#define trigger_wavebounce() 
+{
+	if ((left_down and state_timer <= 5 and spr_dir == 1) or (right_down and state_timer <= 5 and spr_dir == -1) and (b_reversed == false)) {
+    	hsp *= -1;
+    	spr_dir *= -1;
+    	b_reversed = true;
+	} else if (state_timer == 6) {
+    	b_reversed = false;
+	}
+}
