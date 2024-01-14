@@ -133,6 +133,7 @@ switch(attack){
 			break;
 		}
 	}
+	break;
 	case AT_NAIR:
 	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
 		switch (window){
