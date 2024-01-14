@@ -379,7 +379,7 @@ switch(attack){
         }
     break;
     
-    case AT_EXTRA_2
+    case AT_EXTRA_2:
     
     if taunt_down && window = 3{
     
