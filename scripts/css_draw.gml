@@ -1,7 +1,21 @@
 // Draw the appropriate portrait
-draw_sprite_ext(sprite_get("charselect" + string(selected_css_portrait)), 0, x + 8, y + 8, 2, 2, 0, c_white, 1);
-
+var portraitSprite = sprite_get("charselect" + string(selected_css_portrait));
 currAlt = get_player_color(player);
+
+switch (currAlt)
+{
+    // nyaw alt
+    case 17:
+        shader_end();
+		FlagPart(make_colour_rgb(85, 205, 252), portraitSprite, 1, 0); // mayablue
+		FlagPart(make_colour_rgb(247, 168, 223), portraitSprite, 3/5, 1/5); // pink
+		FlagPart(c_white, portraitSprite, 1/5, 2/5);
+		gpu_set_fog(0, c_white, 0, 0);
+        shader_start();
+        break;
+}
+
+draw_sprite_ext(portraitSprite, 0, x + 8, y + 8, 2, 2, 0, c_white, 1);
 
 // Draw the buttons
 
@@ -32,4 +46,10 @@ prepare_shader();
     static_colorT = colorT;
     static_colorI = colorI;
     init_shader();
+}
+
+#define FlagPart(_colour, _portraitSprite, _heightRatio, _xOffsetRatio)
+{
+	gpu_set_fog(1, _colour, 0, 1);
+	draw_sprite_part_ext(_portraitSprite, 0, 0, 72*_xOffsetRatio, 102, 72*_heightRatio, x+8, y+8+(72*_xOffsetRatio)*2, 2, 2, c_white, 1);
 }
