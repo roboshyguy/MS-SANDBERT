@@ -7,3 +7,11 @@ if(state == PS_PARRY){
     	}
     }
 }
+
+if(state == PS_CROUCH){
+    if(state_timer == 4){
+    	if(!hitpause){
+        sound_play(sound_get("crouch"));
+    	}
+    }
+}
