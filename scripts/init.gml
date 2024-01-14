@@ -99,6 +99,10 @@ bag_taunt = 0;
 bag_taunt_max = 1;
 taunt_icon = 0;
 
+wait_time = 300;
+wait_length = 45;
+wait_sprite = sprite_get("idle_wait"); 
+
 
 // Animation Info
 

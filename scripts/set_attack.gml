@@ -12,3 +12,7 @@ if (attack == AT_TAUNT && down_down) {
     //print([sprite_get_number(sprite_get("taunt_icons")), taunt_icon]);
 }
 
+if (attack == AT_TAUNT && up_down) {
+    attack = AT_EXTRA_1;    
+}
+

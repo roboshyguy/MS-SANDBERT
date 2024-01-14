@@ -7,6 +7,12 @@ switch(attack){
 		trigger_b_reverse();
 		break;
 		
+	case AT_FTILT:
+	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)-1)){
+	sound_play(sound_get("sfx_snap"));	
+	}
+	break;
+		
 	case AT_UTILT:
 	hud_offset = 40;
 	break;

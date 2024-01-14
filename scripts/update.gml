@@ -17,7 +17,7 @@ if(state == PS_CROUCH){
 }
 //randomized portraits
 if(get_gameplay_time() % 90 == 0){
-    portrait_rng = random_func(0, 14, true);
+    portrait_rng = random_func(0, 15, true);
     switch(portrait_rng){
         case 0:
         set_victory_portrait(sprite_get("portrait_mudkid"));
@@ -73,6 +73,10 @@ if(get_gameplay_time() % 90 == 0){
         
         case 13:
         set_victory_portrait(sprite_get("portrait_dakota"));
+        break;
+        
+        case 14:
+        set_victory_portrait(sprite_get("portrait_irae"));
         break;
     }
 }

@@ -1,4 +1,5 @@
 sprite_change_offset("idle", 32, 60);//correct
+sprite_change_offset("idle_wait", 32, 60);//correct
 sprite_change_offset("hurt", 36, 53);//correct
 sprite_change_offset("hurtground", 36, 53);//correct
 sprite_change_offset("bighurt", 36, 53);//correct
@@ -7,10 +8,10 @@ sprite_change_offset("downhurt", 36, 53);//correct
 sprite_change_offset("spinhurt", 36, 53);//correct
 sprite_change_offset("bouncehurt", 62, 77);//correct
 sprite_change_offset("bouncehurt_left", 62, 77);//correct
-sprite_change_offset("crouch", 32, 41);
-sprite_change_offset("crouch_hurtbox", 46, 26);
-sprite_change_offset("walk", 34, 54);
-//sprite_change_offset("walkturn", 16, 31);
+sprite_change_offset("crouch", 32, 41);//correct
+sprite_change_offset("crouch_hurtbox", 46, 26);//correct
+sprite_change_offset("walk", 34, 54);//correct
+sprite_change_offset("walkturn", 30, 60);//correct
 sprite_change_offset("dash", 34, 43);//correct
 sprite_change_offset("dashstart", 34, 43);//correct
 sprite_change_offset("dashstop", 34, 43);//correct
@@ -51,6 +52,7 @@ sprite_change_offset("dspecial", 32, 60, true);//correct
 sprite_change_offset("dspecial_2", 32, 60, true);//correct
 sprite_change_offset("dspecial_proj", 27, 40);//correct
 sprite_change_offset("taunt", 26, 39, true);//correct
+sprite_change_offset("dreem_taunt", 68, 60, true);//correct
 
 sprite_change_offset("vfx_small", 89, 89);//correct
 sprite_change_offset("vfx", 118, 118);//correct
@@ -60,3 +62,5 @@ sprite_change_offset("plat_behind", 104, 104);//correct
 sprite_change_offset("bow", 16, 16);
 sprite_change_offset("bag_taunt", 34, 48, true);
 sprite_change_offset("taunt_icons", 7, 15, true);
+
+sprite_change_offset("miiverse", 60, 30);//
