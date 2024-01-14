@@ -6,6 +6,7 @@ switch (currAlt)
 {
     // nyaw alt
     case 17:
+        prepare_shader();
         shader_end();
 		FlagPart(make_colour_rgb(85, 205, 252), portraitSprite, 1, 0); // mayablue
 		FlagPart(make_colour_rgb(247, 168, 223), portraitSprite, 3/5, 1/5); // pink
