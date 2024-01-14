@@ -5,7 +5,33 @@ switch(attack){
 	case AT_DSPECIAL:
 	case AT_USPECIAL:
 		trigger_b_reverse();
+		hud_offset = 50;
+		//
+		can_move = false;
+		can_wall_jump = true;
+		if has_hit{
+			can_fast_fall=true;
+		} else{
+			can_fast_fall = false;
+		}
 		break;
+		
+	case AT_JAB:
+	if(window == 1 && window_time_is(get_window_value(AT_JAB, 1, AG_WINDOW_LENGTH)-1)){
+	sound_play(asset_get("sfx_syl_nspecial"));	
+	}
+	
+	if(window == 4 && window_time_is(get_window_value(AT_JAB, 4, AG_WINDOW_LENGTH)-1)){
+	sound_play(asset_get("sfx_ell_fist_explode"));	
+	}
+	break;
+		
+	case AT_FTILT:
+	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)-1)){
+	sound_play(sound_get("sfx_snap"));	
+	var _snap = spawn_hit_fx( x + spr_dir * 110, y - 40, 305 );
+	}
+	break;
 		
 	case AT_UTILT:
 	hud_offset = 40;
@@ -29,14 +55,14 @@ switch(attack){
 	if(!was_parried){
 	if(window == 4 or window == 3){
 		if(times_stomped < 4){
-		if(attack_pressed){
+		if(is_attack_pressed(DIR_ANY) or down_strong_pressed){
 			clear_button_buffer( PC_ATTACK_PRESSED );
 			set_window_value(AT_DTILT, 4, AG_WINDOW_GOTO, 6);
 			}	
 		}
 	}if(window == 9 or window == 8){
 		if(times_stomped < 4){
-		if(attack_pressed){
+		if(is_attack_pressed(DIR_ANY) or down_strong_pressed){
 			clear_button_buffer( PC_ATTACK_PRESSED );
 			set_window_value(AT_DTILT, 9, AG_WINDOW_GOTO, 11);
 			}	
@@ -93,7 +119,7 @@ switch(attack){
             case 4:
             vsp = -4;
             break;
-            case 6:
+            case 8:
             vsp = -4;
             break;
         }
@@ -135,7 +161,69 @@ switch(attack){
 	}
 	break;
 	
+	case AT_DSTRONG:
+		hud_offset = 20;
+	if(window == 2){
+		switch(window_timer){
+			case 1:
+			sound_play(asset_get("sfx_abyss_spawn"));
+			sound_play(asset_get("sfx_abyss_hazard_burst"));
+			sound_play(asset_get("sfx_ori_dtilt_perform"));
+			break;
+			
+			case 9:
+			sound_play(asset_get("sfx_swipe_medium2"));
+			break;
+		}
+	}
+	break;
+	
+	case AT_USTRONG:
+	can_wall_jump = true;
+	can_fast_fall = false;
+
+	if window == 2{
+		set_window_value(AT_USTRONG, 3, AG_WINDOW_VSPEED, -9 -(strong_charge/40));
+	}
+	if was_parried == true{
+		window = 6;
+	}
+	if (window == 3) or (window == 4){
+		hud_offset = 65
+	}
+	if window == 5{
+		hud_offset = 120
+	}
+	if window == 6{
+		hud_offset = 70
+		set_attack_value(AT_USTRONG, AG_CATEGORY, 1);
+	}
+	break;
+	
+	case AT_FAIR:
+	if(window == 1 && window_time_is(10)){
+	sound_play(asset_get("sfx_bird_screech"));	
+	}
+	break;
+	
+	case AT_BAIR:
+	if(has_hit){
+		if(window == 4){
+			can_jump = true;
+			can_attack = true;
+			can_strong = true;
+			can_special = true;
+			can_shield = true;
+			can_wall_jump = true;
+		}
+	}
+	break;
+	
 	case AT_NAIR:
+	if (window == 6 && window_timer >= 0 && has_hit && !was_parried && (attack_pressed || attack_down)){
+		window = 8;
+		window_timer = 0;
+	}
 	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
 		switch (window){
 			case 2:
@@ -144,26 +232,30 @@ switch(attack){
 			case 4:
 			vsp = -4;
 			break;
-			case 6:
+			case 8:
 			vsp = -4;
 			break;
 		}
 	}
-	with (pHitBox) if (player_id == other && hbox_num >= 17 && hbox_num <= 19 && attack == AT_NAIR){
-		if (!player_id.free){
-			destroyed = true;
+	with (pHitBox){
+		if (player_id == other && attack == AT_NAIR){
+			if (hbox_num >= 17 && hbox_num <= 19 && !player_id.free){
+				destroyed = true;
+			} if (hbox_num >= 3 && hbox_num <= 8 && player_id.window > 6){
+				destroyed = true;
+			}
 		}
 	}
-	if (window == 7 && window_timer == 12 && !hitpause){
+	if (window == 9 && window_timer == 14 && !hitpause){
 		sound_play(asset_get("sfx_swipe_heavy2"));
 	}
-	if (window == 10 && window_timer == 0 && !hitpause){
+	if (window == 12 && window_timer == 0 && !hitpause){
 		sound_play(asset_get("sfx_zetter_downb"));
 	}
-	if (window == 8 || window == 9){
+	if (window == 10 || window == 11){
 		can_fast_fall = false;
 	}
-	if (window == 9){
+	if (window == 11){
 		nair_loop_timer++;
 		if (nair_loop_timer >= 12 && !was_parried && !hitpause){
 			can_shield = true;
@@ -174,7 +266,7 @@ switch(attack){
 		can_jump = false;
 		nair_loop_timer = 0;
 	}
-	if (window > 7 && window <= 11){
+	if (window > 9 && window <= 13){
 		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
 		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
 	} else {
@@ -187,7 +279,7 @@ switch(attack){
 //hold
     if (window == 3){
         if (window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 1){
-            if (special_down){
+            if (special_down && !was_parried){
                 window_timer = get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 2;
             }
         }
@@ -307,6 +399,80 @@ switch(attack){
     }
 	break;
 	
+	case AT_USPECIAL:
+	trigger_wavebounce();
+	hud_offset = 50;
+	if(window != 3){
+	can_fast_fall = false;
+	can_move = false;
+	can_wall_jump = true;
+	}else{
+	can_fast_fall = true;
+	can_move = true;
+	can_wall_jump = true;		
+	}
+	break;
+	
+	case AT_NSPECIAL:
+	trigger_wavebounce();
+	if(window == 1 && window_timer == 1){
+		nspecial_charge = 0;
+	}
+	
+	//charge
+	if((window == 2 or window == 3 or window == 4) && window_timer == 2){
+		if(nspecial_charge == 0){
+		sound_play(asset_get("sfx_abyss_hex_curse"));
+		}if(nspecial_charge == 2){
+			spawn_hit_fx(x, y-30, 301);
+		sound_play(asset_get("sfx_frog_dstrong"));
+		}if(nspecial_charge == 4){
+			spawn_hit_fx(x, y-30, 304);
+		sound_play(asset_get("sfx_frog_dspecial_swallow"));
+		}
+		print("test");
+		nspecial_charge += 1;
+	}
+	
+	if(window == 2 && get_window_value(AT_NSPECIAL, 2, AG_WINDOW_LENGTH)-1){
+		if(nspecial_charge < 2){
+			window_timer = 1;
+		}
+	}
+	if(window == 3 && get_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH)-1){
+		if(nspecial_charge < 4){
+			window_timer = 1;
+		}else{
+			
+		}
+	}
+	
+	//release
+	if(window == 2 or window == 3){
+		if(!special_down){
+			window = 5;
+			window_timer = 0;
+		}
+	}
+	
+	//create hitbox
+	if(window == 5 && window_time_is(4)){
+		sound_play(asset_get("sfx_abyss_hazard_burst"));
+		sound_play(sound_get("sfx_snap"));
+		spawn_hit_fx(x + spr_dir * 55, y-35, 301);
+		if(nspecial_charge < 3){
+			move_cooldown[AT_NSPECIAL] = 60;
+			create_hitbox(AT_NSPECIAL, 1, x + spr_dir * 55, y - 35);
+		}if(nspecial_charge >= 3 && nspecial_charge < 5){
+			move_cooldown[AT_NSPECIAL] = 120;
+			create_hitbox(AT_NSPECIAL, 2, x + spr_dir * 55, y - 35);			
+		}if(nspecial_charge >= 5){
+			move_cooldown[AT_NSPECIAL] = 120;
+			create_hitbox(AT_NSPECIAL, 3, x + spr_dir * 55, y - 35);			
+		}
+	}
+	break;
+
 	case AT_TAUNT:
 	if(window == 1){
 		switch(window_timer){
@@ -348,6 +514,18 @@ switch(attack){
             window_timer = 14;
         }
     break;
+    
+    case AT_EXTRA_2:
+    
+    if taunt_down && window = 3{
+    
+    if window_timer > 23{
+        window_timer = 23;
+    }    
+        
+    }
+    break;
+    
 }
 
 
@@ -362,7 +540,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
+var dir = argument_count > 3 ? argument[3] : 0;
 
 switch (name) {
     default: 
@@ -389,3 +567,13 @@ return newdust;
     return window_timer == frame and !hitpause
 // DANGER: Write your code ABOVE the LIBRARY DEFINES AND MACROS header or it will be overwritten!
 // #endregion
+#define trigger_wavebounce() 
+{
+	if ((left_down and state_timer <= 5 and spr_dir == 1) or (right_down and state_timer <= 5 and spr_dir == -1) and (b_reversed == false)) {
+    	hsp *= -1;
+    	spr_dir *= -1;
+    	b_reversed = true;
+	} else if (state_timer == 6) {
+    	b_reversed = false;
+	}
+}

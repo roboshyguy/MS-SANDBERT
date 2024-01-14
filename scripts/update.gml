@@ -16,10 +16,10 @@ if(state == PS_CROUCH){
     }
 }
 
-//randomized portraits
 //print_debug("selected_portrait = " + string(selected_portrait));
 if (detect_end_of_match())
 {
+    //randomized portraits
     if (random_portrait) {
         selected_portrait = random_func(0, num_portrait_options - 1, true);
     }

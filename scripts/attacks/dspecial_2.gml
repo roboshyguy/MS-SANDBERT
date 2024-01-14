@@ -1,4 +1,7 @@
-set_attack_value(AT_DSPECIAL_2, AG_CATEGORY, 2);
+//////////////////////////////////////
+//  Ms.Sandbert D-Special by Tdude  //
+//////////////////////////////////////
+
 set_attack_value(AT_DSPECIAL_2, AG_SPRITE, sprite_get("dspecial_2"));
 set_attack_value(AT_DSPECIAL_2, AG_NUM_WINDOWS, 2);
 set_attack_value(AT_DSPECIAL_2, AG_HAS_LANDING_LAG, 4);
