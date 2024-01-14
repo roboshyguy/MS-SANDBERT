@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert Taunt by Dinobros  //
+//////////////////////////////////////
+
 curr_attack = AT_TAUNT_2;
 
 set_attack_value(curr_attack, AG_CATEGORY, 2);

@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert D-Special by Tdude  //
+//////////////////////////////////////
+
 set_attack_value(AT_DSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("dspecial"));
 set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 4);

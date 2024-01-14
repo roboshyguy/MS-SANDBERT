@@ -15,4 +15,7 @@ if (attack == AT_TAUNT && down_down) {
 if (attack == AT_TAUNT && up_down) {
     attack = AT_EXTRA_1;    
 }
+if (attack == AT_TAUNT && right_down) {
+    attack = AT_EXTRA_2;    
+}
 

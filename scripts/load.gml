@@ -45,7 +45,7 @@ sprite_change_offset("dair", 22, 47, true);//correct
 sprite_change_offset("fstrong", 47, 63, true);//correct
 //sprite_change_offset("ustrong", 32, 79, true);
 sprite_change_offset("dstrong", 80, 57, true);//correct
-//sprite_change_offset("nspecial", 32, 47, true);
+sprite_change_offset("nspecial", 102, 118, true);//correct
 //sprite_change_offset("fspecial", 32, 47, true);
 sprite_change_offset("uspecial", 42, 57, true);//correct
 sprite_change_offset("dspecial", 32, 60, true);//correct
@@ -62,5 +62,7 @@ sprite_change_offset("plat_behind", 104, 104);//correct
 sprite_change_offset("bow", 16, 16);
 sprite_change_offset("bag_taunt", 34, 48, true);
 sprite_change_offset("taunt_icons", 7, 15, true);
+
+sprite_change_offset("thumbtaunt", 55, 70);
 
 sprite_change_offset("miiverse", 60, 30);//

@@ -1,5 +1,5 @@
 //////////////////////////////////////
-//  Ms.Sandbert U-Air by Reiga  //
+//  Ms.Sandbert F-Strong by Reiga  //
 //////////////////////////////////////
 
 set_attack_value(AT_FSTRONG, AG_SPRITE, sprite_get("fstrong"));

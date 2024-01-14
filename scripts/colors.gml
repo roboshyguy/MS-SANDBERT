@@ -2,7 +2,7 @@
 
 // Bow
 set_color_profile_slot( 0, 0, 242, 117, 212 );
-set_color_profile_slot_range( 0, 2, 21, 18 );
+set_color_profile_slot_range( 0, 2, 23, 31 );
 
 // Body
 set_color_profile_slot( 0, 1, 255, 255, 255 );
@@ -79,6 +79,6 @@ set_color_profile_slot( 16, 1, 145, 76, 23 ); //Body
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
 === BEGIN JSON PALETTE ===
-{"formatversion":1,"data":[{"name":"Bow","colors":[{"r":242,"g":117,"b":212,"main":true},{"r":223,"g":94,"b":192},{"r":199,"g":56,"b":164}]},{"name":"Body","colors":[{"r":255,"g":255,"b":255,"main":true},{"r":105,"g":105,"b":105}]}]}
+{"formatversion":1,"data":[{"name":"Bow","colors":[{"r":242,"g":117,"b":212,"main":true},{"r":223,"g":94,"b":192},{"r":199,"g":56,"b":164},{"r":165,"g":43,"b":135}]},{"name":"Body","colors":[{"r":255,"g":255,"b":255,"main":true},{"r":105,"g":105,"b":105}]}]}
 === END JSON PALETTE ===
 */

@@ -1,3 +1,6 @@
+//////////////////////////////////////
+//  Ms.Sandbert Taunt by Kocakup  //
+//////////////////////////////////////
 
 set_attack_value(AT_TAUNT, AG_SPRITE, sprite_get("taunt"));
 set_attack_value(AT_TAUNT, AG_NUM_WINDOWS, 1);

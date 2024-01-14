@@ -1,3 +1,6 @@
+//////////////////////////////////////
+//  Ms.Sandbert Taunt by dreem  //
+//////////////////////////////////////
 
 set_attack_value(AT_EXTRA_1, AG_SPRITE, sprite_get("dreem_taunt"));
 set_attack_value(AT_EXTRA_1, AG_NUM_WINDOWS, 3);

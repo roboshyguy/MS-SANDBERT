@@ -141,6 +141,23 @@ switch(attack){
 	}
 	break;
 	
+	case AT_DSTRONG:
+		hud_offset = 20;
+	if(window == 2){
+		switch(window_timer){
+			case 1:
+			sound_play(asset_get("sfx_abyss_spawn"));
+			sound_play(asset_get("sfx_abyss_hazard_burst"));
+			sound_play(asset_get("sfx_ori_dtilt_perform"));
+			break;
+			
+			case 9:
+			sound_play(asset_get("sfx_swipe_medium2"));
+			break;
+		}
+	}
+	break;
+	
 	case AT_NAIR:
 	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
 		switch (window){
@@ -361,6 +378,18 @@ switch(attack){
             window_timer = 14;
         }
     break;
+    
+    case AT_EXTRA_2
+    
+    if taunt_down && window = 3{
+    
+    if window_timer > 23{
+        window_timer = 23;
+    }    
+        
+    }
+    break;
+    
 }
 
 
