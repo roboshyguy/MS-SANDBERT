@@ -54,4 +54,4 @@ sprite_change_offset("dspecial_proj", 27, 40);//correct
 sprite_change_offset("vfx_small", 89, 89);//correct
 sprite_change_offset("vfx", 118, 118);//correct
 
-//sprite_change_offset("plat", 32, 47);
+sprite_change_offset("plat_behind", 104, 104);//correct
