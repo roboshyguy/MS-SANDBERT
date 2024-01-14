@@ -119,7 +119,7 @@ switch(attack){
             case 4:
             vsp = -4;
             break;
-            case 6:
+            case 8:
             vsp = -4;
             break;
         }
@@ -220,6 +220,10 @@ switch(attack){
 	break;
 	
 	case AT_NAIR:
+	if (window == 6 && window_timer >= 0 && has_hit && !was_parried && (attack_pressed || attack_down)){
+		window = 8;
+		window_timer = 0;
+	}
 	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
 		switch (window){
 			case 2:
@@ -228,26 +232,30 @@ switch(attack){
 			case 4:
 			vsp = -4;
 			break;
-			case 6:
+			case 8:
 			vsp = -4;
 			break;
 		}
 	}
-	with (pHitBox) if (player_id == other && hbox_num >= 17 && hbox_num <= 19 && attack == AT_NAIR){
-		if (!player_id.free){
-			destroyed = true;
+	with (pHitBox){
+		if (player_id == other && attack == AT_NAIR){
+			if (hbox_num >= 17 && hbox_num <= 19 && !player_id.free){
+				destroyed = true;
+			} if (hbox_num >= 3 && hbox_num <= 8 && player_id.window > 6){
+				destroyed = true;
+			}
 		}
 	}
-	if (window == 7 && window_timer == 12 && !hitpause){
+	if (window == 9 && window_timer == 14 && !hitpause){
 		sound_play(asset_get("sfx_swipe_heavy2"));
 	}
-	if (window == 10 && window_timer == 0 && !hitpause){
+	if (window == 12 && window_timer == 0 && !hitpause){
 		sound_play(asset_get("sfx_zetter_downb"));
 	}
-	if (window == 8 || window == 9){
+	if (window == 10 || window == 11){
 		can_fast_fall = false;
 	}
-	if (window == 9){
+	if (window == 11){
 		nair_loop_timer++;
 		if (nair_loop_timer >= 12 && !was_parried && !hitpause){
 			can_shield = true;
@@ -258,7 +266,7 @@ switch(attack){
 		can_jump = false;
 		nair_loop_timer = 0;
 	}
-	if (window > 7 && window <= 11){
+	if (window > 9 && window <= 13){
 		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
 		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
 	} else {
@@ -532,7 +540,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
+var dir = argument_count > 3 ? argument[3] : 0;
 
 switch (name) {
     default: 
