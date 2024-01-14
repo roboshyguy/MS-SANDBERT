@@ -1,6 +1,24 @@
-// Change the synced var when a button is pressed
+// Don't reset the synced var by default to keep the user's selection
+// Check synced var is legal, if not reset to 0
+var local_synced_var = get_synced_var(player);
+// Only display buttons if we won a previous game
+// Allocate half of it for portrait num
+selected_portrait = local_synced_var & 0xffff;
+// Allocate other half for determining if we won already
+var winning_key_local = (local_synced_var >> 16) & 0xffff;
+won_previously = true;
+if ((selected_portrait >= num_portrait_options)
+    || (winning_key_local != 0x1234))
+{
+    local_synced_var = 0;
+    won_previously = false;
+}
 
+//print_debug("Freshly synced_var = " + string(local_synced_var));
+//print_debug("Freshly won_previously = " + string(won_previously));
 
+//if (won_previously) {
+// The buttons are active even if they're invisible
 // Detect when a button is hovered/clicked
 if (instance_exists(cursor_id)) {
 	var cursor_x = get_instance_x(cursor_id);
@@ -16,11 +34,12 @@ if (instance_exists(cursor_id)) {
 		// If over one of the boxes, suppress the cursor and detect click
 		suppress_cursor = 1;
 		if (menu_a_pressed) {
-			selected_css_portrait--;
-			if (selected_css_portrait < 0) {
-			    selected_css_portrait = num_portrait_options - 1;
+			selected_portrait--;
+			if (selected_portrait < 0) {
+			    selected_portrait = num_portrait_options - 1;
 			}
 			sound_play(asset_get("mfx_forward"), false, noone, 1, 1);
+			winning_key_local = 0x1234;
 		}
 	} else {
 		left_button_frame = 0;
@@ -36,11 +55,12 @@ if (instance_exists(cursor_id)) {
 		// If over one of the boxes, suppress the cursor and detect click
 		suppress_cursor = 1;
 		if (menu_a_pressed) {
-			selected_css_portrait++;
-			if (selected_css_portrait >= num_portrait_options) {
-			    selected_css_portrait = 0;
+			selected_portrait++;
+			if (selected_portrait >= num_portrait_options) {
+			    selected_portrait = 0;
 			}
 			sound_play(asset_get("mfx_forward"), false, noone, 1, 1);
+			winning_key_local = 0x1234;
 		}
 	} else {
 		right_button_frame = 0;
@@ -56,17 +76,19 @@ if (instance_exists(cursor_id)) {
 		// If over one of the boxes, suppress the cursor and detect click
 		suppress_cursor = 1;
 		if (menu_a_pressed) {
-		    var prev_portrait = selected_css_portrait;
-			selected_css_portrait = random_func(0, num_portrait_options - 2, true);
-			if (selected_css_portrait >= prev_portrait) {
-			    selected_css_portrait++;
+		    var prev_portrait = selected_portrait;
+			selected_portrait = random_func(0, num_portrait_options - 2, true);
+			if (selected_portrait >= prev_portrait) {
+			    selected_portrait++;
 			}
 			sound_play(asset_get("mfx_forward"), false, noone, 1, 1);
+			winning_key_local = 0x1234;
 		}
 	} else {
 		dice_button_frame = 0;
 	}
 }
+//}
 
 // Update the synced var with the choice
-set_synced_var(player, selected_css_portrait);
+set_synced_var(player, selected_portrait | (winning_key_local << 16));
