@@ -7,6 +7,16 @@ switch(attack){
 		trigger_b_reverse();
 		break;
 		
+	case AT_JAB:
+	if(window == 1 && window_time_is(get_window_value(AT_JAB, 1, AG_WINDOW_LENGTH)-1)){
+	sound_play(asset_get("sfx_syl_nspecial"));	
+	}
+	
+	if(window == 4 && window_time_is(get_window_value(AT_JAB, 4, AG_WINDOW_LENGTH)-1)){
+	sound_play(asset_get("sfx_ell_fist_explode"));	
+	}
+	break;
+		
 	case AT_FTILT:
 	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)-1)){
 	sound_play(sound_get("sfx_snap"));	
@@ -154,6 +164,42 @@ switch(attack){
 			case 9:
 			sound_play(asset_get("sfx_swipe_medium2"));
 			break;
+		}
+	}
+	break;
+	
+	case AT_USTRONG:
+	can_wall_jump = true;
+can_fast_fall = false;
+	if was_parried == true{
+		window = 6;
+	}
+	if (window == 3) or (window == 4){
+		hud_offset = 65
+	}
+	if window == 5{
+		hud_offset = 120
+	}
+	if window == 6{
+		hud_offset = 70
+	}
+	break;
+	
+	case AT_FAIR:
+	if(window == 1 && window_time_is(10)){
+	sound_play(asset_get("sfx_bird_screech"));	
+	}
+	break;
+	
+	case AT_BAIR:
+	if(has_hit){
+		if(window == 4){
+			can_jump = true;
+			can_attack = true;
+			can_strong = true;
+			can_special = true;
+			can_shield = true;
+			can_wall_jump = true;
 		}
 	}
 	break;

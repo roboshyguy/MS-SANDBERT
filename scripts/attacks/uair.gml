@@ -41,21 +41,21 @@ set_window_value(AT_UAIR, 5, AG_WINDOW_HAS_WHIFFLAG, 1);
 // Hitboxes //
 //////////////
 
-set_num_hitboxes(AT_UAIR, 4);
+set_num_hitboxes(AT_UAIR, 3);
 
 // hitbox 1 (side)
 set_hitbox_value(AT_UAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UAIR, 1, HG_WINDOW, 2);
 set_hitbox_value(AT_UAIR, 1, HG_LIFETIME, 3);
-set_hitbox_value(AT_UAIR, 1, HG_HITBOX_X, 62);
-set_hitbox_value(AT_UAIR, 1, HG_HITBOX_Y, -62);
-set_hitbox_value(AT_UAIR, 1, HG_WIDTH, 90);
-set_hitbox_value(AT_UAIR, 1, HG_HEIGHT, 124);
+set_hitbox_value(AT_UAIR, 1, HG_HITBOX_X, 52);
+set_hitbox_value(AT_UAIR, 1, HG_HITBOX_Y, -92);
+set_hitbox_value(AT_UAIR, 1, HG_WIDTH, 80);
+set_hitbox_value(AT_UAIR, 1, HG_HEIGHT, 80);
 set_hitbox_value(AT_UAIR, 1, HG_PRIORITY, 1);
 set_hitbox_value(AT_UAIR, 1, HG_DAMAGE, 12);
 set_hitbox_value(AT_UAIR, 1, HG_ANGLE, 90);
-set_hitbox_value(AT_UAIR, 1, HG_BASE_KNOCKBACK, 7.5);
-set_hitbox_value(AT_UAIR, 1, HG_KNOCKBACK_SCALING, 0.85);
+set_hitbox_value(AT_UAIR, 1, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_UAIR, 1, HG_KNOCKBACK_SCALING, 0.8);
 set_hitbox_value(AT_UAIR, 1, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_UAIR, 1, HG_HITPAUSE_SCALING, .8);
 set_hitbox_value(AT_UAIR, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
@@ -74,48 +74,29 @@ set_hitbox_value(AT_UAIR, 2, HG_HEIGHT, 75);
 set_hitbox_value(AT_UAIR, 2, HG_PRIORITY, 1);
 set_hitbox_value(AT_UAIR, 2, HG_DAMAGE, 12);
 set_hitbox_value(AT_UAIR, 2, HG_ANGLE, 90);
-set_hitbox_value(AT_UAIR, 2, HG_BASE_KNOCKBACK, 7.5);
-set_hitbox_value(AT_UAIR, 2, HG_KNOCKBACK_SCALING, 0.85);
+set_hitbox_value(AT_UAIR, 2, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_UAIR, 2, HG_KNOCKBACK_SCALING, 0.8);
 set_hitbox_value(AT_UAIR, 2, HG_BASE_HITPAUSE, 10);
 set_hitbox_value(AT_UAIR, 2, HG_HITPAUSE_SCALING, .8);
 set_hitbox_value(AT_UAIR, 2, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 2, HG_HIT_SFX, asset_get("sfx_blow_heavy2"));
 set_hitbox_value(AT_UAIR, 2, HG_VISUAL_EFFECT, bow_vfx_big);
 
-// hitbox 3 (top small) a bit weaker btw
+// hitbox 4 (left side) a bit weaker btw
 set_hitbox_value(AT_UAIR, 3, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UAIR, 3, HG_WINDOW, 3);
 set_hitbox_value(AT_UAIR, 3, HG_LIFETIME, 3);
-set_hitbox_value(AT_UAIR, 3, HG_HITBOX_X, -33);
-set_hitbox_value(AT_UAIR, 3, HG_HITBOX_Y, -111);
-set_hitbox_value(AT_UAIR, 3, HG_WIDTH, 60);
-set_hitbox_value(AT_UAIR, 3, HG_HEIGHT, 60);
+set_hitbox_value(AT_UAIR, 3, HG_HITBOX_X, -66);
+set_hitbox_value(AT_UAIR, 3, HG_HITBOX_Y, -60);
+set_hitbox_value(AT_UAIR, 3, HG_WIDTH, 78);
+set_hitbox_value(AT_UAIR, 3, HG_HEIGHT, 133);
 set_hitbox_value(AT_UAIR, 3, HG_PRIORITY, 1);
 set_hitbox_value(AT_UAIR, 3, HG_DAMAGE, 10);
 set_hitbox_value(AT_UAIR, 3, HG_ANGLE, 90);
-set_hitbox_value(AT_UAIR, 3, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_UAIR, 3, HG_BASE_KNOCKBACK, 6);
 set_hitbox_value(AT_UAIR, 3, HG_KNOCKBACK_SCALING, .6);
 set_hitbox_value(AT_UAIR, 3, HG_BASE_HITPAUSE, 9);
 set_hitbox_value(AT_UAIR, 3, HG_HITPAUSE_SCALING, .7);
 set_hitbox_value(AT_UAIR, 3, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_UAIR, 3, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
-set_hitbox_value(AT_UAIR, 3, HG_VISUAL_EFFECT, bow_vfx_small);
-
-// hitbox 4 (left side) a bit weaker btw
-set_hitbox_value(AT_UAIR, 4, HG_HITBOX_TYPE, 1);
-set_hitbox_value(AT_UAIR, 4, HG_WINDOW, 3);
-set_hitbox_value(AT_UAIR, 4, HG_LIFETIME, 3);
-set_hitbox_value(AT_UAIR, 4, HG_HITBOX_X, -66);
-set_hitbox_value(AT_UAIR, 4, HG_HITBOX_Y, -60);
-set_hitbox_value(AT_UAIR, 4, HG_WIDTH, 88);
-set_hitbox_value(AT_UAIR, 4, HG_HEIGHT, 133);
-set_hitbox_value(AT_UAIR, 4, HG_PRIORITY, 1);
-set_hitbox_value(AT_UAIR, 4, HG_DAMAGE, 10);
-set_hitbox_value(AT_UAIR, 4, HG_ANGLE, 90);
-set_hitbox_value(AT_UAIR, 4, HG_BASE_KNOCKBACK, 7);
-set_hitbox_value(AT_UAIR, 4, HG_KNOCKBACK_SCALING, .6);
-set_hitbox_value(AT_UAIR, 4, HG_BASE_HITPAUSE, 9);
-set_hitbox_value(AT_UAIR, 4, HG_HITPAUSE_SCALING, .7);
-set_hitbox_value(AT_UAIR, 4, HG_VISUAL_EFFECT_Y_OFFSET, -16);
-set_hitbox_value(AT_UAIR, 4, HG_HIT_SFX, asset_get("sfx_blow_heavy1"));
-set_hitbox_value(AT_UAIR, 4, HG_VISUAL_EFFECT, bow_vfx_small);
+set_hitbox_value(AT_UAIR, 3, HG_VISUAL_EFFECT, bow_vfx_big);

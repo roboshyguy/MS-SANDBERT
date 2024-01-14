@@ -10,7 +10,7 @@ set_color_profile_slot_range( 1, 1, 1, 60 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 18 );
+set_num_palettes( 21 );
 
 // Robo Alt
 set_color_profile_slot( 1, 0, 255, 224, 150 ); //Bow
@@ -64,21 +64,33 @@ set_color_profile_slot( 12, 1, 59, 59, 59 ); //Body
 set_color_profile_slot( 13, 0, 190, 118, 237 ); //Bow
 set_color_profile_slot( 13, 1, 111, 37, 156 ); //Body
 
+// Infinite Alt
+set_color_profile_slot( 14, 0, 255, 0, 0 ); //Bow
+set_color_profile_slot( 14, 1, 255, 213, 0 ); //Body
+
+// Scaurai Alt
+set_color_profile_slot( 15, 0, 125, 172, 109 ); //Bow
+set_color_profile_slot( 15, 1, 217, 202, 102 ); //Body
+
+// SB Alt
+set_color_profile_slot( 16, 0, 0, 140, 255 ); //Bow
+set_color_profile_slot( 16, 1, 26, 53, 184 ); //Body
+
 // Renlira Alt
-set_color_profile_slot( 14, 0, 162, 29, 40 ); //Bow
-set_color_profile_slot( 14, 1, 184, 114, 55 ); //Body
+set_color_profile_slot( 17, 0, 162, 29, 40 ); //Bow
+set_color_profile_slot( 17, 1, 184, 114, 55 ); //Body
 
 // Mudkid Alt
-set_color_profile_slot( 15, 0, 209, 254, 255 ); //Bow
-set_color_profile_slot( 15, 1, 0, 195, 255 ); //Body
-
-// Inner Alt
-set_color_profile_slot( 16, 0, 255, 251, 0 ); //Bow
-set_color_profile_slot( 16, 1, 145, 76, 23 ); //Body
+set_color_profile_slot( 18, 0, 209, 254, 255 ); //Bow
+set_color_profile_slot( 18, 1, 0, 195, 255 ); //Body
 
 // Nyaw Alt
-set_color_profile_slot( 17, 0, 245, 169, 184 ); //Bow
-set_color_profile_slot( 17, 1, 255, 255, 255 ); //Body
+set_color_profile_slot( 19, 0, 245, 169, 184 ); //Bow
+set_color_profile_slot( 19, 1, 255, 255, 255 ); //Body
+
+// Inner Alt
+set_color_profile_slot( 20, 0, 255, 251, 0 ); //Bow
+set_color_profile_slot( 20, 1, 145, 76, 23 ); //Body
 
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.

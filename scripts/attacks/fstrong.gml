@@ -9,7 +9,7 @@ set_attack_value(AT_FSTRONG, AG_STRONG_CHARGE_WINDOW, 1);
 set_attack_value(AT_FSTRONG, AG_HURTBOX_SPRITE, sprite_get("fstrong_hurt"));
 
 //startup
-set_window_value(AT_FSTRONG, 1, AG_WINDOW_LENGTH, 18);
+set_window_value(AT_FSTRONG, 1, AG_WINDOW_LENGTH, 20);
 set_window_value(AT_FSTRONG, 1, AG_WINDOW_ANIM_FRAMES, 12);
 set_window_value(AT_FSTRONG, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(AT_FSTRONG, 1, AG_WINDOW_SFX, asset_get("sfx_abyss_explosion_start"));
@@ -100,8 +100,8 @@ set_hitbox_value(AT_FSTRONG, 6, HG_HITBOX_Y, -54);
 set_hitbox_value(AT_FSTRONG, 6, HG_WIDTH, 300);
 set_hitbox_value(AT_FSTRONG, 6, HG_HEIGHT, 46);
 set_hitbox_value(AT_FSTRONG, 6, HG_PRIORITY, 3);
-set_hitbox_value(AT_FSTRONG, 6, HG_DAMAGE, 6);
-set_hitbox_value(AT_FSTRONG, 6, HG_ANGLE, 45);
+set_hitbox_value(AT_FSTRONG, 6, HG_DAMAGE, 4);
+set_hitbox_value(AT_FSTRONG, 6, HG_ANGLE, 50);
 set_hitbox_value(AT_FSTRONG, 6, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_FSTRONG, 6, HG_KNOCKBACK_SCALING, 1.05);
 set_hitbox_value(AT_FSTRONG, 6, HG_EFFECT, 1);

@@ -8,7 +8,7 @@ if ((state == PS_RESPAWN) || (attack == AT_TAUNT && free)) && !place_meeting(x,y
 switch (get_player_color(player))
 {
     // nyaw alt
-    case 17:
+    case 19:
 		FlagPart(make_colour_rgb(85, 205, 252), sprite_height, sprite_yoffset); // mayablue
 		FlagPart(make_colour_rgb(247, 168, 223), 20, 26); // pink
 		FlagPart(c_white, 8, 20);

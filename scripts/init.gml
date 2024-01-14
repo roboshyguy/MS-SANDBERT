@@ -37,7 +37,7 @@ ground_friction     = 0.5;		// 0.3  -  1
 moonwalk_accel      = 1.3;		// 1.2  -  1.4
     
 // Air movement
-leave_ground_max    = 6;		// 4    -  8
+leave_ground_max    = 5;		// 4    -  8
 max_jump_hsp        = 6;		// 4    -  8
 air_max_speed       = 4;  		// 3    -  7
 jump_change         = 3;		// 3
@@ -102,6 +102,8 @@ taunt_icon = 0;
 wait_time = 300;
 wait_length = 45;
 wait_sprite = sprite_get("idle_wait"); 
+
+miiverse_post = sprite_get("miiverse");
 
 
 // Animation Info

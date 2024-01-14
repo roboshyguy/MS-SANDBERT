@@ -32,7 +32,7 @@ sprite_change_offset("airdodge", 26, 41);//correct
 sprite_change_offset("waveland", 36, 53);//correct
 sprite_change_offset("tech", 32, 47);//correct
 
-//sprite_change_offset("jab", 32, 47, true);
+sprite_change_offset("jab", 30, 78, true);
 sprite_change_offset("dattack", 34, 60, true);//correct
 sprite_change_offset("ftilt", 17, 48, true);//correct
 sprite_change_offset("dtilt", 76, 91, true);//correct
@@ -43,7 +43,7 @@ sprite_change_offset("bair", 80, 76, true);//correct
 sprite_change_offset("uair", 65, 100, true);//correct
 sprite_change_offset("dair", 22, 47, true);//correct
 sprite_change_offset("fstrong", 47, 63, true);//correct
-//sprite_change_offset("ustrong", 32, 79, true);
+sprite_change_offset("ustrong", 65, 84, true);//correct
 sprite_change_offset("dstrong", 80, 57, true);//correct
 sprite_change_offset("nspecial", 102, 118, true);//correct
 //sprite_change_offset("fspecial", 32, 47, true);
@@ -63,6 +63,6 @@ sprite_change_offset("bow", 16, 16);
 sprite_change_offset("bag_taunt", 34, 48, true);
 sprite_change_offset("taunt_icons", 7, 15, true);
 
-sprite_change_offset("thumbtaunt", 55, 70);
+sprite_change_offset("thumbtaunt", 55, 70, true);//correct
 
 sprite_change_offset("miiverse", 60, 30);//
