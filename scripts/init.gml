@@ -89,13 +89,15 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 // Variables
 times_stomped = 0;
 
-//dspecial start
 dspecial_absorb_count = 0;
 
 dspecial_damage_multiplier = 2.75; //technically these arent multipliers but shhh i dont feel like rewriting the variable names
 dspecial_bkb_multiplier = 2.8;
 dspecial_kbs_multiplier = 2.75;
-//dspecial end
+
+bag_taunt = 0;
+bag_taunt_max = 1;
+taunt_icon = 0;
 
 
 // Animation Info
@@ -139,10 +141,10 @@ roll_back_startup_frames = 1;
 roll_back_active_frames = 3;
 roll_back_recovery_frames = 2;
 
-// Crouch
-crouch_startup_frames   = 2;
-crouch_active_frames    = 1;
-crouch_recovery_frames  = 2;
+//crouch animation frames
+crouch_startup_frames = 3;
+crouch_active_frames = 1;
+crouch_recovery_frames = 1;
 
 /*
 
@@ -161,12 +163,12 @@ of the standing-up animation. Dan Moment
 
 // Hurtbox sprites
 hurtbox_spr         = asset_get("ex_guy_hurt_box");
-crouchbox_spr       = asset_get("ex_guy_crouch_box");
+crouchbox_spr       = sprite_get("crouch_hurtbox");
 air_hurtbox_spr     = -1; // -1 = use hurtbox_spr
 hitstun_hurtbox_spr = -1; // -1 = use hurtbox_spr
 
 // Victory
-//set_victory_bg(sprite_get("victory_background")); // victory_background.png
+set_victory_bg(sprite_get("victory_bg")); // victory_background.png
 set_victory_theme(sound_get("lipstickBow")); // victory_theme.ogg
 
 // Movement SFX

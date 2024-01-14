@@ -133,6 +133,8 @@ switch(attack){
 			break;
 		}
 	}
+	break;
+	
 	case AT_NAIR:
 	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
 		switch (window){
@@ -193,14 +195,35 @@ switch(attack){
     
     //absorb
     if (window == 2 || window == 3){
+
+        can_fast_fall = false;
         
-        can_move = false;
+        //Why Dose She Floot
+        if (window == 2){
+            if (window_timer == 1){
+                if (!hitpause && !hitstop){
+                    if (vsp > 0){
+                        vsp = 0;
+                    }
+                }
+            }
+        }
+        
+        //jc
+        if (has_hit && !was_parried){
+            can_jump = true;
+        }
+        
+        //fall slower
+        if (vsp > 6){
+            vsp = 6;
+        }
         
         with (asset_get("pHitBox")) {
         	        	
         
         	            //If hitbox is: not the player's, is a projectile, and is in range of 60
-        	            if (player != other.player && type == 2 && (point_distance(x, y, other.x + 65 * other.spr_dir, other.y - 30) < 30)) {
+        	            if (player != other.player && type == 2 && ((point_distance(x, y, other.x + 65 * other.spr_dir, other.y - 30) < 30) || (point_distance(x, y, other.x + 65 * other.spr_dir, other.y + 30) < 30))) {
         
         	            	var hbox_dmg = damage;
         	            	var hbox = self;
@@ -224,7 +247,7 @@ switch(attack){
         	                    	    window = 4;
         	                    	    window_timer = 0;
         	                    	    sound_play(asset_get("sfx_poison_hit_weak"));
-        	                    	    sound_play(asset_get("sfx_ell_small_missile_ground"));
+        	                    	    sound_play(asset_get("sfx_may_arc_cointoss"));
         	                    	}
         	                    	
         	                    	//change dspecial stats
@@ -265,6 +288,7 @@ switch(attack){
         if (window_timer == get_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_LENGTH)){
             if (!hitpause && !hitstop){
                 sound_play(asset_get("mfx_star"));
+                sound_play(asset_get("sfx_sand_yell"), false, noone, 1, 1.5);
             }
         }
     }
@@ -282,6 +306,48 @@ switch(attack){
         }
     }
 	break;
+	
+	case AT_TAUNT:
+	if(window == 1){
+		switch(window_timer){
+			case 1:
+			sound_play(asset_get("mfx_star"));
+			spawn_hit_fx(x, y-30, 301);
+			break;
+			
+			case 18:
+			sound_play(asset_get("mfx_notice"));
+			spawn_hit_fx(x, y-30, 301);
+			break;
+			
+			case 36:
+			sound_play(asset_get("sfx_bubblepop"));
+			spawn_hit_fx(x, y-30, 301);
+			break;
+			
+			case 54:
+			sound_play(asset_get("mfx_chat_received"));
+			spawn_hit_fx(x, y-30, 301);
+			break;
+			
+			case 72:
+			sound_play(asset_get("mfx_unstar"));
+			spawn_hit_fx(x, y-30, 301);
+			break;
+		}
+	}
+	break;
+	
+    case AT_TAUNT_2:
+        if (window == 3 && (window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH)) && bag_taunt) {
+                bag_taunt--;
+                window = 2;
+                window_timer = 0;
+        }
+        if (window == 6 && taunt_down) {
+            window_timer = 14;
+        }
+    break;
 }
 
 
@@ -296,7 +362,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir = argument_count > 3 ? argument[3] : 0;
+var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
 
 switch (name) {
     default: 
