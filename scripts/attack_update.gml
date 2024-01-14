@@ -84,6 +84,40 @@ switch(attack){
 	}
 	break;
 	
+    case AT_NAIR:
+    if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
+        switch (window){
+            case 2:
+            vsp = -2;
+            break;
+            case 4:
+            vsp = -4;
+            break;
+            case 6:
+            vsp = -4;
+            break;
+        }
+    }
+    with (pHitBox) if (player_id == other && hbox_num >= 17 && hbox_num <= 19 && attack == AT_NAIR){
+        if (!player_id.free){
+            destroyed = true;
+        }
+    }
+    if (window == 7 && window_timer == 12 && !hitpause){
+        sound_play(asset_get("sfx_swipe_heavy2"));
+    }
+    if (window == 10 && window_timer == 0 && !hitpause){
+        sound_play(asset_get("sfx_zetter_downb"));
+    }
+    if (window > 7 && window <= 11){
+        set_attack_value(AT_NAIR, AG_CATEGORY, 2);
+        set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
+    } else {
+        reset_attack_value(AT_NAIR, AG_CATEGORY);
+        reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
+    }
+    break;
+	
 	case AT_UAIR:
 	if(window == 2){
 		hud_offset = 100;
@@ -145,6 +179,108 @@ switch(attack){
 		reset_attack_value(AT_NAIR, AG_CATEGORY);
 		reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
 	}
+	break;
+	
+	case AT_DSPECIAL:
+//hold
+    if (window == 3){
+        if (window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 1){
+            if (special_down){
+                window_timer = get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 2;
+            }
+        }
+    }
+    
+    //absorb
+    if (window == 2 || window == 3){
+        
+        can_move = false;
+        
+        with (asset_get("pHitBox")) {
+        	        	
+        
+        	            //If hitbox is: not the player's, is a projectile, and is in range of 60
+        	            if (player != other.player && type == 2 && (point_distance(x, y, other.x + 65 * other.spr_dir, other.y - 30) < 30)) {
+        
+        	            	var hbox_dmg = damage;
+        	            	var hbox = self;
+        	            	
+        	                with (other) {
+        	                    //absorb
+        	                    if (hbox.can_hit[player] && hbox.damage > 0 && hbox.hit_priority > 0 && !hbox.plasma_safe && hbox.player != player){
+        	                    	
+        	                    	//sfx/vfx
+        	                    	sound_play(asset_get("sfx_blow_medium2"));
+        	                    	sound_play(asset_get("sfx_abyss_despawn"));
+        	                    	spawn_hit_fx( hbox.x + 0*hbox.spr_dir, hbox.y, 301 );
+        	                    	hbox.destroyed = true;
+        	                    	
+        	                    	//add to meter
+        	                    	if (dspecial_absorb_count < 3){
+            	                    	dspecial_absorb_count += 1;
+        	                    	}
+        	                    	
+        	                    	if (dspecial_absorb_count == 3){
+        	                    	    window = 4;
+        	                    	    window_timer = 0;
+        	                    	    sound_play(asset_get("sfx_poison_hit_weak"));
+        	                    	    sound_play(asset_get("sfx_ell_small_missile_ground"));
+        	                    	}
+        	                    	
+        	                    	//change dspecial stats
+        	                    	var dspec_damage = get_hitbox_value(AT_DSPECIAL, 2, HG_DAMAGE);
+        	                    	var dspec_bkb = get_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK);
+        	                    	var dspec_kbs = get_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING);
+        	                    	
+        	                    	var hbox_damage = hbox.damage;
+        	                    	var hbox_bkb = hbox.kb_value;
+        	                    	var hbox_kbs = hbox.kb_scale;
+        	                    	
+        	                        set_hitbox_value(AT_DSPECIAL, 2, HG_DAMAGE, dspec_damage + round(hbox_damage/dspecial_damage_multiplier));
+                                    set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK, dspec_bkb + hbox_bkb/dspecial_bkb_multiplier);
+                                    set_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING, dspec_kbs + hbox_kbs/dspecial_kbs_multiplier);
+
+        	                        //set invincibility if not already invincible
+        	                        if (!invincible){
+        		                        invincible = 1;
+        								invince_time = 5;	
+        	                        }
+        							
+        							//hitpause stuff
+        							other.hitpause = 1;
+        							other.hitstop = 3;
+        							other.hitstop_full = 3;
+        							other.old_vsp = other.vsp;
+        							other.old_hsp = other.hsp;
+        	                    }
+        	                }
+        	            }
+        	        }
+        }
+	break;
+	
+	case AT_DSPECIAL_2:
+	//remove charge
+    if (window == 1){
+        if (window_timer == get_window_value(AT_DSPECIAL_2, 1, AG_WINDOW_LENGTH)){
+            if (!hitpause && !hitstop){
+                sound_play(asset_get("mfx_star"));
+            }
+        }
+    }
+    
+    if (window == 2){
+        if (window_timer == 1){
+            if (!hitpause && !hitstop){
+                create_hitbox(AT_DSPECIAL, 2, floor(x), floor(y) - 0); //create hitbox
+                
+                dspecial_absorb_count = 0;
+                reset_hitbox_value(AT_DSPECIAL, 2, HG_DAMAGE);
+                reset_hitbox_value(AT_DSPECIAL, 2, HG_BASE_KNOCKBACK);
+                reset_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING);
+            }
+        }
+    }
 	break;
 }
 

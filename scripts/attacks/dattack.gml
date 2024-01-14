@@ -1,5 +1,5 @@
 //////////////////////////////////////
-//  Ms.Sandbert U-Air by Reiga  //
+//  Ms.Sandbert D-Attack by Spider Boi  //
 //////////////////////////////////////
 
 set_attack_value(AT_DATTACK, AG_SPRITE, sprite_get("dattack"));

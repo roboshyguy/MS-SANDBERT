@@ -89,13 +89,21 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 // Variables
 times_stomped = 0;
 
+//dspecial start
+dspecial_absorb_count = 0;
+
+dspecial_damage_multiplier = 2.75; //technically these arent multipliers but shhh i dont feel like rewriting the variable names
+dspecial_bkb_multiplier = 2.8;
+dspecial_kbs_multiplier = 2.75;
+//dspecial end
+
 
 // Animation Info
 
 // Misc. animation speeds
 idle_anim_speed     = 0.13;
 crouch_anim_speed   = 0.1;
-walk_anim_speed     = 0.125;
+walk_anim_speed     = 0.175;
 dash_anim_speed     = 0.2;
 pratfall_anim_speed = 0.25;
 
@@ -120,8 +128,8 @@ techroll_recovery_frames = 2;
 
 // Airdodge
 air_dodge_startup_frames    = 1;
-air_dodge_active_frames     = 4;
-air_dodge_recovery_frames   = 2;
+air_dodge_active_frames     = 6;
+air_dodge_recovery_frames   = 4;
 
 // Roll
 roll_forward_startup_frames = 1;
