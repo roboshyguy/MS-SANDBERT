@@ -182,3 +182,9 @@ bubble_x = 0;
 bubble_y = 8;
 
 nair_loop_timer = 0;
+
+// Interactions with synced var
+// Get the value from it and determine victory/results portraits
+var synced_var = get_synced_var(player);
+set_victory_portrait(sprite_get("portrait" + string(synced_var)));
+set_victory_sidebar(sprite_get("result_small" + string(synced_var)));
