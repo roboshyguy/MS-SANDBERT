@@ -22,12 +22,8 @@ dice_button_border_buffer = 0;
 dice_button_frame = 0;
 dice_mode_active = false;
 
-// Don't reset the synced var by default to keep the user's selection
-// Check synced var is legal, if not reset to 0
-// Hm... actually, can we roll a random number here?
-var local_synced_var = get_synced_var(player);
-num_portrait_options = 13;
-if (local_synced_var > 3) {
-    local_synced_var = 0;
-}
-selected_css_portrait = local_synced_var;
+// Default css sprite
+selected_portrait = 0;
+selected_css_sprite = sprite_get("charselect_mudkid");
+num_portrait_options = 15;
+won_previously = false;
