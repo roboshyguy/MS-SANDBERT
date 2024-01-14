@@ -7,7 +7,8 @@ sprite_change_offset("downhurt", 36, 53);//correct
 sprite_change_offset("spinhurt", 36, 53);//correct
 sprite_change_offset("bouncehurt", 62, 77);//correct
 sprite_change_offset("bouncehurt_left", 62, 77);//correct
-//sprite_change_offset("crouch", 16, 47);
+sprite_change_offset("crouch", 32, 41);
+sprite_change_offset("crouch_hurtbox", 46, 26);
 sprite_change_offset("walk", 34, 54);
 //sprite_change_offset("walkturn", 16, 31);
 //sprite_change_offset("dash", 16, 31);
@@ -55,3 +56,5 @@ sprite_change_offset("vfx_small", 89, 89);//correct
 sprite_change_offset("vfx", 118, 118);//correct
 
 sprite_change_offset("plat_behind", 104, 104);//correct
+
+sprite_change_offset("bow", 16, 16);
