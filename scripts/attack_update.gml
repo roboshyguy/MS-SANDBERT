@@ -5,6 +5,15 @@ switch(attack){
 	case AT_DSPECIAL:
 	case AT_USPECIAL:
 		trigger_b_reverse();
+		hud_offset = 50;
+		//
+		can_move = false;
+		can_wall_jump = true;
+		if has_hit{
+			can_fast_fall=true;
+		} else{
+			can_fast_fall = false;
+		}
 		break;
 		
 	case AT_JAB:
@@ -170,7 +179,11 @@ switch(attack){
 	
 	case AT_USTRONG:
 	can_wall_jump = true;
-can_fast_fall = false;
+	can_fast_fall = false;
+
+	if window == 2{
+		set_window_value(AT_USTRONG, 3, AG_WINDOW_VSPEED, -9 -(strong_charge/40));
+	}
 	if was_parried == true{
 		window = 6;
 	}
@@ -182,6 +195,7 @@ can_fast_fall = false;
 	}
 	if window == 6{
 		hud_offset = 70
+		set_attack_value(AT_USTRONG, AG_CATEGORY, 1);
 	}
 	break;
 	
@@ -256,7 +270,7 @@ can_fast_fall = false;
 //hold
     if (window == 3){
         if (window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 1){
-            if (special_down){
+            if (special_down && !was_parried){
                 window_timer = get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) - 2;
             }
         }
@@ -374,13 +388,6 @@ can_fast_fall = false;
             }
         }
     }
-	break;
-	
-	case AT_USPECIAL:
-	hud_offset = 50;
-	can_fast_fall = false;
-	can_move = false;
-	can_wall_jump = true;
 	break;
 	
 	case AT_TAUNT:

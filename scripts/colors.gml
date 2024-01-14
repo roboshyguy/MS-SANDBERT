@@ -78,7 +78,7 @@ set_color_profile_slot( 16, 1, 26, 53, 184 ); //Body
 
 // Renlira Alt
 set_color_profile_slot( 17, 0, 162, 29, 40 ); //Bow
-set_color_profile_slot( 17, 1, 184, 114, 55 ); //Body
+set_color_profile_slot( 17, 1, 207, 108, 41 ); //Body
 
 // Mudkid Alt
 set_color_profile_slot( 18, 0, 209, 254, 255 ); //Bow
