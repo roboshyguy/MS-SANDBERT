@@ -25,5 +25,5 @@ dice_mode_active = false;
 // Default css sprite
 selected_portrait = 0;
 selected_css_sprite = sprite_get("charselect_mudkid");
-num_portrait_options = 15;
+num_portrait_options = 16;
 won_previously = false;

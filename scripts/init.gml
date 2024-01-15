@@ -219,7 +219,7 @@ nair_loop_timer = 0;
 var synced_var = get_synced_var(player);
 //print_debug("Freshly synced_var = " + string(synced_var));
 selected_portrait = synced_var & 0xffff;
-num_portrait_options = 15;
+num_portrait_options = 16;
 var winning_key_local = (synced_var >> 16) & 0xffff;
 // Compare against this key
 winning_key = 0x1234;
