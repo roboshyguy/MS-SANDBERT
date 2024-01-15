@@ -49,72 +49,58 @@ if (detect_end_of_match())
             set_victory_portrait(sprite_get("portrait_mudkid"));
             set_victory_sidebar(sprite_get("result_small_mudkid"));
             break;
-        
         case 1:
             set_victory_portrait(sprite_get("portrait_vforce"));
             set_victory_sidebar(sprite_get("result_small_vforce"));
             break;
-        
         case 2:
             set_victory_portrait(sprite_get("portrait_tdude"));
             set_victory_sidebar(sprite_get("result_small_tdude"));
             break;
-        
         case 3:
             set_victory_portrait(sprite_get("portrait_sb"));
             set_victory_sidebar(sprite_get("result_small_sb"));
             break;
-        
         case 4:
             set_victory_portrait(sprite_get("portrait_scaurai"));
             set_victory_sidebar(sprite_get("result_small_scaurai"));
             break;
-        
         case 5:
             set_victory_portrait(sprite_get("portrait_dino"));
             set_victory_sidebar(sprite_get("result_small_dino"));
             break;
-        
         case 6:
             set_victory_portrait(sprite_get("portrait_reiga"));
             set_victory_sidebar(sprite_get("result_small_reiga"));
             break;
-        
         case 7:
             set_victory_portrait(sprite_get("portrait_finalhg"));
             set_victory_sidebar(sprite_get("result_small_finalhg"));
             break;
-        
         case 8:
             set_victory_portrait(sprite_get("portrait_sandbert"));
             set_victory_sidebar(sprite_get("result_small_sandbert"));
             break;
-        
         case 9:
             set_victory_portrait(sprite_get("portrait_renlira"));
             set_victory_sidebar(sprite_get("result_small_renlira"));
             break;
-        
         case 10:
             set_victory_portrait(sprite_get("portrait_chmmr"));
             set_victory_sidebar(sprite_get("result_small_chmmr"));
             break;
-        
         case 11:
             set_victory_portrait(sprite_get("portrait_hyu"));
             set_victory_sidebar(sprite_get("result_small_hyu"));
             break;
-        
         case 12:
             set_victory_portrait(sprite_get("portrait_dakota"));
             set_victory_sidebar(sprite_get("result_small_dakota"));
             break;
-        
         case 13:
             set_victory_portrait(sprite_get("portrait_infinite"));
             set_victory_sidebar(sprite_get("result_small_infinite"));
             break;
-        
         case 14:
             set_victory_portrait(sprite_get("portrait_bar"));
             set_victory_sidebar(sprite_get("result_small_bar"));
@@ -122,6 +108,10 @@ if (detect_end_of_match())
         case 15:
             set_victory_portrait(sprite_get("portrait_jh"));
             set_victory_sidebar(sprite_get("result_small_jh"));
+            break;
+        case 16:
+            set_victory_portrait(sprite_get("portrait_snappy"));
+            set_victory_sidebar(sprite_get("result_small_snappy"));
             break;
     }
     
