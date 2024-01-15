@@ -214,8 +214,11 @@ switch(attack){
 			can_strong = true;
 			can_special = true;
 			can_shield = true;
-			can_wall_jump = true;
 		}
+	}
+	
+	if(window == 4){
+	can_wall_jump = true;	
 	}
 	break;
 	
@@ -504,7 +507,7 @@ switch(attack){
 		}if(nspecial_charge >= 3 && nspecial_charge < 5){
 			move_cooldown[AT_NSPECIAL] = 120;
 			create_hitbox(AT_NSPECIAL, 2, x + spr_dir * 55, y - 35);			
-		}if(nspecial_charge <= 5){
+		}if(nspecial_charge >= 5){
 			move_cooldown[AT_NSPECIAL] = 120;
 			create_hitbox(AT_NSPECIAL, 3, x + spr_dir * 55, y - 35);			
 		}
