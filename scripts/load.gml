@@ -75,3 +75,5 @@ sprite_change_offset("taunt_icons", 7, 15, true);
 sprite_change_offset("thumbtaunt", 55, 70, true);//correct
 
 sprite_change_offset("miiverse", 60, 30);//
+
+sprite_change_offset("mamizou_compat", 24, 42);
