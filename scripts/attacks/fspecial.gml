@@ -10,7 +10,7 @@ set_attack_value(attack, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
 
 // Window 1 - Tap or Hold?
 var win_num = 1;
-set_window_value(attack, win_num, AG_WINDOW_LENGTH, 6);
+set_window_value(attack, win_num, AG_WINDOW_LENGTH, 8);
 set_window_value(attack, win_num, AG_WINDOW_ANIM_FRAMES, 1);
 
 // Window 2 - Hold pre-attack
@@ -122,24 +122,24 @@ var fist_vfx = HFX_GEN_BIG; //  Fist Visual Effect
 var fist_sfx = asset_get("sfx_blow_heavy2"); //  Fist Sound Effect
 
 var grab_pri = 2; // Grab Priority
-var grab_dmg = 5; // Grab Damage
+var grab_dmg = 3; // Grab Damage
 var grab_ang = 0; // Grab Angle
 var grab_flip = 0; // Grab Angle Flipper
 var grab_kb = 0.5; // Grab Knockback
 var grab_kbg = 0; // Grab Knockback Growth
 var grab_hp = 6; // Grab Hitpause
-var grab_hpg = 0.8; // Grab Hitpause Growth
+var grab_hpg = 0.6; // Grab Hitpause Growth
 var grab_vfx = HFX_GEN_SWEET; // Grab Visual Effect
 var grab_sfx = asset_get("sfx_pom_slap1"); // Grab Sound Effect
 
 // Grab crunch [1, 2]
 var crunch_pri = [2, 2]; // Crunch Priority
-var crunch_dmg = [2, 4]; // Crunch Damage
+var crunch_dmg = [2, 2]; // Crunch Damage
 var crunch_ang = [0, 0]; // Crunch Angle
 var crunch_flip = [0, 0]; // Crunch Angle Flipper
 var crunch_kb = [0.5, 0.5]; // Crunch Knockback
 var crunch_kbg = [0, 0]; // Crunch Knockback Growth
-var crunch_hp = [6, 7]; // Crunch Hitpause
+var crunch_hp = [5, 5]; // Crunch Hitpause
 var crunch_hpg = [0.4, 0.4]; // Crunch Hitpause Growth
 var crunch_vfx = [HFX_GEN_SPIN, HFX_GEN_SPIN]; // Crunch Visual Effect
 var crunch_sfx = [asset_get("sfx_crunch_water"), asset_get("sfx_crunch")]; // Crunch Sound Effect
@@ -148,14 +148,14 @@ var crunch_sfx = [asset_get("sfx_crunch_water"), asset_get("sfx_crunch")]; // Cr
 // This is because spikes on ground do terrible knockback
 // The groundedness check is done in attack_update due to weirdness with grabbed_invisible
 var throw_pri = [2, 2]; // Throw Priority
-var throw_dmg = [6, 6]; // Throw Damage
+var throw_dmg = [4, 4]; // Throw Damage
 var throw_ang = [270, 90]; // Throw Angle
 var throw_flip = [0, 0]; // Throw Angle Flipper
-var throw_kb = [8, 9]; // Throw Knockback
-var throw_kbg = [1.35, 1.25]; // Throw Knockback Growth
+var throw_kb = [7, 9]; // Throw Knockback
+var throw_kbg = [0.6, 0.6]; // Throw Knockback Growth
 var throw_hsm = [0.5, 0.5]; // Throw Hitstun Multiplier
-var throw_hp = [12, 12]; // Throw Hitpause
-var throw_hpg = [0, 0]; // Throw Hitpause Growth
+var throw_hp = [8, 8]; // Throw Hitpause
+var throw_hpg = [0.8, 0.8]; // Throw Hitpause Growth
 var throw_vfx = [HFX_ABY_EXPLODE_WARN, HFX_ABY_EXPLODE_WARN]; // Throw Visual Effect
 var throw_sfx = [asset_get("sfx_abyss_explosion"), asset_get("sfx_abyss_explosion")]; //  Throw Sound Effect
 
@@ -164,8 +164,8 @@ set_hitbox_value(attack, hbox_num, HG_WINDOW, 3);
 set_hitbox_value(attack, hbox_num, HG_LIFETIME, get_window_value(attack, get_hitbox_value(attack, hbox_num, HG_WINDOW), AG_WINDOW_LENGTH));
 set_hitbox_value(attack, hbox_num, HG_HITBOX_X, 32);
 set_hitbox_value(attack, hbox_num, HG_HITBOX_Y, -38);
-set_hitbox_value(attack, hbox_num, HG_WIDTH, 82);
-set_hitbox_value(attack, hbox_num, HG_HEIGHT, 90);
+set_hitbox_value(attack, hbox_num, HG_WIDTH, 62);
+set_hitbox_value(attack, hbox_num, HG_HEIGHT, 70);
 set_hitbox_value(attack, hbox_num, HG_PRIORITY, fist_pri);
 set_hitbox_value(attack, hbox_num, HG_DAMAGE, fist_dmg);
 set_hitbox_value(attack, hbox_num, HG_ANGLE, fist_ang);
@@ -183,8 +183,8 @@ set_hitbox_value(attack, hbox_num, HG_WINDOW, 7);
 set_hitbox_value(attack, hbox_num, HG_LIFETIME, get_window_value(attack, get_hitbox_value(attack, hbox_num, HG_WINDOW), AG_WINDOW_LENGTH));
 set_hitbox_value(attack, hbox_num, HG_HITBOX_X, 36);
 set_hitbox_value(attack, hbox_num, HG_HITBOX_Y, -40);
-set_hitbox_value(attack, hbox_num, HG_WIDTH, 78);
-set_hitbox_value(attack, hbox_num, HG_HEIGHT, 78);
+set_hitbox_value(attack, hbox_num, HG_WIDTH, 68);
+set_hitbox_value(attack, hbox_num, HG_HEIGHT, 68);
 set_hitbox_value(attack, hbox_num, HG_SDI_MULTIPLIER, 0.001);
 set_hitbox_value(attack, hbox_num, HG_PRIORITY, grab_pri);
 set_hitbox_value(attack, hbox_num, HG_DAMAGE, grab_dmg);

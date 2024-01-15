@@ -142,6 +142,60 @@ switch(attack){
         reset_attack_value(AT_NAIR, AG_CATEGORY);
         reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
     }
+    
+	if (window == 6 && window_timer >= 0 && has_hit && !was_parried && (attack_pressed || attack_down)){
+		window = 8;
+		window_timer = 0;
+	}
+	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
+		switch (window){
+			case 2:
+			vsp = -2;
+			break;
+			case 4:
+			vsp = -4;
+			break;
+			case 8:
+			vsp = -4;
+			break;
+		}
+	}
+	with (pHitBox){
+		if (player_id == other && attack == AT_NAIR){
+			if (hbox_num >= 17 && hbox_num <= 19 && !player_id.free){
+				destroyed = true;
+			} if (hbox_num >= 3 && hbox_num <= 8 && player_id.window > 6){
+				destroyed = true;
+			}
+		}
+	}
+	if (window == 9 && window_timer == 14 && !hitpause){
+		sound_play(asset_get("sfx_swipe_heavy2"));
+	}
+	if (window == 12 && window_timer == 0 && !hitpause){
+		sound_play(asset_get("sfx_zetter_downb"));
+	}
+	if (window == 10 || window == 11){
+		can_fast_fall = false;
+	}
+	if (window == 11){
+		nair_loop_timer++;
+		if (nair_loop_timer >= 12 && !was_parried && !hitpause){
+			can_shield = true;
+			can_jump = true;
+		}
+	} else {
+		can_shield = false;
+		can_jump = false;
+		nair_loop_timer = 0;
+	}
+	if (window > 9 && window <= 13){
+		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
+		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
+	} else {
+		reset_attack_value(AT_NAIR, AG_CATEGORY);
+		reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
+	}
     break;
 	
 	case AT_UAIR:
@@ -202,7 +256,7 @@ switch(attack){
 	
 	case AT_FAIR:
 	if(window == 1 && window_time_is(10)){
-	sound_play(asset_get("sfx_bird_screech"), 0, noone, 0.75); 
+	sound_play(asset_get("sfx_bird_screech"), 0, noone, 0.65); 
 	}
 	
 	if(window != 3){
@@ -225,62 +279,6 @@ switch(attack){
 	
 	if(window == 4){
 	can_wall_jump = true;	
-	}
-	break;
-	
-	case AT_NAIR:
-	if (window == 6 && window_timer >= 0 && has_hit && !was_parried && (attack_pressed || attack_down)){
-		window = 8;
-		window_timer = 0;
-	}
-	if (!was_parried && !hitpause && !fast_falling && window_timer == 1){
-		switch (window){
-			case 2:
-			vsp = -2;
-			break;
-			case 4:
-			vsp = -4;
-			break;
-			case 8:
-			vsp = -4;
-			break;
-		}
-	}
-	with (pHitBox){
-		if (player_id == other && attack == AT_NAIR){
-			if (hbox_num >= 17 && hbox_num <= 19 && !player_id.free){
-				destroyed = true;
-			} if (hbox_num >= 3 && hbox_num <= 8 && player_id.window > 6){
-				destroyed = true;
-			}
-		}
-	}
-	if (window == 9 && window_timer == 14 && !hitpause){
-		sound_play(asset_get("sfx_swipe_heavy2"));
-	}
-	if (window == 12 && window_timer == 0 && !hitpause){
-		sound_play(asset_get("sfx_zetter_downb"));
-	}
-	if (window == 10 || window == 11){
-		can_fast_fall = false;
-	}
-	if (window == 11){
-		nair_loop_timer++;
-		if (nair_loop_timer >= 12 && !was_parried && !hitpause){
-			can_shield = true;
-			can_jump = true;
-		}
-	} else {
-		can_shield = false;
-		can_jump = false;
-		nair_loop_timer = 0;
-	}
-	if (window > 9 && window <= 13){
-		set_attack_value(AT_NAIR, AG_CATEGORY, 2);
-		set_attack_value(AT_NAIR, AG_HAS_LANDING_LAG, false);
-	} else {
-		reset_attack_value(AT_NAIR, AG_CATEGORY);
-		reset_attack_value(AT_NAIR, AG_HAS_LANDING_LAG);
 	}
 	break;
 	
@@ -461,6 +459,7 @@ switch(attack){
 	//release
 	if(window == 2 or window == 3 or window == 4){
 		if(!special_down){
+			release_gojo = true;
 			window = 5;
 			window_timer = 0;
 		}
@@ -599,6 +598,9 @@ switch(attack){
 					set_hitbox_value(attack, 5, HG_WINDOW, 0); // Grounded Throw
 				}
 			}
+			
+			vsp = clamp(vsp,-2.5,2.5);
+			hsp = clamp(hsp,-4.5,4.5);
 			break;
 		}
 	}

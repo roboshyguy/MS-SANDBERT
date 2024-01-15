@@ -12,7 +12,7 @@ if(my_hitboxID.attack == AT_DAIR){
     }
 }
 
-if my_hitboxID.attack == AT_USTRONG and my_hitboxID.hbox_num == 1{
+if my_hitboxID.attack == AT_USTRONG{
     switch(my_hitboxID.hbox_num){
         case 1:
         sound_play(asset_get("sfx_zap"));

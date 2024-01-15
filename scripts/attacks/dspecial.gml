@@ -63,6 +63,7 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITPAUSE_SCALING, 0.5);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_DSPECIAL, 1, HG_IGNORES_PROJECTILES, 1);
+set_hitbox_value(AT_DSPECIAL, 1, HG_VISUAL_EFFECT, bow_vfx_small);
 
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_TYPE, 2);
 set_hitbox_value(AT_DSPECIAL, 2, HG_WINDOW, 0);
@@ -87,7 +88,7 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_HSPEED, 30);
 //set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_GRAVITY, .75);
 //set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_GROUND_BEHAVIOR, 2);
 //set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_AIR_FRICTION, .02);
-set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, 304);
+set_hitbox_value(AT_DSPECIAL, 2, HG_VISUAL_EFFECT, bow_vfx_big);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HIT_SFX, asset_get("sfx_absa_kickhit"));
 set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
 set_hitbox_value(AT_DSPECIAL, 2, HG_PROJECTILE_WALL_BEHAVIOR, 1);
