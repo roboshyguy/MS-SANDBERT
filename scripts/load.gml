@@ -56,6 +56,7 @@ sprite_change_offset("dspecial", 32, 60, true);//correct
 sprite_change_offset("dspecial_2", 32, 60, true);//correct
 sprite_change_offset("dspecial_proj", 27, 40);//correct
 sprite_change_offset("taunt", 26, 39, true);//correct
+sprite_change_offset("taunt_left", 43, 83, true);//correct
 sprite_change_offset("dreem_taunt", 68, 60, true);//correct
 
 sprite_change_offset("vfx_small", 89, 89);//correct

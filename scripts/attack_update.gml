@@ -525,6 +525,11 @@ switch(attack){
 	if (!hitpause) {
 		switch (window) {
 			case 1:
+			if(window_timer == 1){
+				fspecial_ledge_cancel = 0;
+				moved_up = false;
+			}
+			move_cooldown[AT_FSPECIAL] = 90;
 				if (window_timer == window_length) {
 					if (!special_down) {
 						window = 6;
@@ -601,8 +606,30 @@ switch(attack){
 			
 			vsp = clamp(vsp,-2.5,2.5);
 			hsp = clamp(hsp,-4.5,4.5);
+			move_cooldown[AT_FSPECIAL] = 90;
+			break;
+			
+			case 3:
+			case 7:
+			// MOVE UP AT LEDGE
+    		if (!moved_up && free && place_meeting(x+hsp,y,asset_get("par_block"))) {
+        		for (var i = 0; i < 40; i++){
+            	if (!place_meeting(x+hsp,y-(i+1),asset_get("par_block"))) {
+                y -= i;
+                moved_up = true;
+                break;
+            }
+        }
+    }			
 			break;
 		}
+		
+		if((window == 3 or window == 7) && !free && !has_hit && !was_parried){
+		ledge_cancel = 1;
+	}	else {
+		can_move = false;
+	}
+	
 	}
 	
 	break;

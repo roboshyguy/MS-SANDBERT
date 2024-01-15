@@ -100,6 +100,8 @@ grab_float_accel = [0.6, 0.6, 0.8]; // Up, down, horizontal
 grab_float_deccel = [0.4, 0.4]; // Vertical, horizontal
 grab_launch_speed = 8;
 grabbed = [];
+fspecial_ledge_cancel = 0;
+moved_up = false;
 
 nspecial_charge = 0;
 nspec_fully_charged = false;
