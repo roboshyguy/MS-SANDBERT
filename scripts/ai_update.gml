@@ -74,13 +74,22 @@ SetAttack();
 		switch (attack)
 		{
 			case AT_FTILT:
-			case AT_UTILT:
+			//case AT_UTILT:
 				if (has_hit_player && get_training_cpu_action()== CPU_FIGHT)
 				{
 					jump_pressed = true;
 				}
 				break;
+			case AT_DTILT:
+				if (has_hit_player && get_training_cpu_action()== CPU_FIGHT)
+				{
+					DoAttack(AT_FSPECIAL);
+				}
+				break;
 			case AT_NAIR:
+				attack_down = true;
+				if (free) DoAttack(AT_USPECIAL);
+				break;
 			case AT_BAIR:
 			case AT_FAIR:
 			case AT_UAIR:
@@ -92,7 +101,15 @@ SetAttack();
 				}
 				break;
 			case AT_JAB:
-				if (has_hit_player) DoAttack(AT_DTILT);
+				if (has_hit_player && get_training_cpu_action()== CPU_FIGHT) DoAttack(AT_DTILT);
+				break;
+			case AT_FSPECIAL:
+				if (has_hit_player && get_training_cpu_action()== CPU_FIGHT)
+				{
+					HoldTowardsStage();
+					ReverseHold();
+					down_down = true;
+				}
 				break;
 			case AT_USPECIAL:
 				HoldTowardsStage();
@@ -100,6 +117,8 @@ SetAttack();
 				if (can_wall_jump) jump_pressed = true;
 				break;
 			case AT_TAUNT:
+			case AT_TAUNT_2:
+				down_down = false;
 				taunt_down = false;
 				taunt_pressed = false;
 				break;
@@ -124,36 +143,39 @@ SetAttack();
 			{
 				if (ai_target == self)
 				{
-					if (!free) DoAttack(AT_TAUNT);
+					if (!free) DoAttack(AT_TAUNT_2);
 					break;
 				}
-				var frameOffset = 5;
+				var frameOffset = 6;
 				var xdist = abs((ai_target.x+ai_target.hsp*frameOffset)-x);
 				var ydist = abs((ai_target.y+ai_target.vsp*frameOffset)-y);
 				var dist = point_distance(0, 0, xdist, ydist);
-				var highDamage = get_player_damage(ai_target.player)>90;
+				var highDamage = get_player_damage(ai_target.player)>110;
 				// pov the entire ai is just if else if else if
 				if (free)
 				{
 					if (ydist < 100 && xdist < 130) DoAttack(AT_NAIR);
-					else if (ydist < 70 && xdist < 150) DoAttack(AT_FAIR);
+					else if (ydist < 70 && xdist < 100) DoAttack(AT_FAIR);
+					else if (ydist < 60 && xdist < 120) DoAttack(AT_FSPECIAL);
 					else if (ydist < 120 && xdist < 80 && ai_target.y>y) DoAttack(AT_DAIR);
 					else if (ydist >= 120 && xdist < 100 && ai_target.y>y) DoAttack(AT_NAIR);
 					else if (ydist < 150 && xdist < 150 && ai_target.y<y) DoAttack(AT_UAIR);
 					else if (djumps == max_djumps && vsp >= -3 && highDamage && ydist < 180 && xdist < 80 && ai_target.y<y) DoAttack(AT_USPECIAL);
-					else HoldTowardsTarget();
 				}
 				else
 				{
-					//if (ydist < 120 && xdist < 50 && highDamage) DoAttack(AT_USTRONG);
-					if (ydist < 60 && xdist < 120 && highDamage) DoAttack(AT_DSTRONG);
+					if (ydist < 120 && xdist < 30) DoAttack(AT_USTRONG);
+					else if (ydist < 60 && xdist < 80 && highDamage) DoAttack(AT_FSPECIAL);
+					else if (ydist < 60 && xdist < 120 && highDamage) DoAttack(AT_DSTRONG);
 					else if (ydist < 100 && xdist < 300 && highDamage) DoAttack(AT_FSTRONG);
-					else if (ydist < 50 && xdist < 50) DoAttack(AT_JAB);
-					else if (ydist < 100 && xdist < 60) DoAttack(AT_UTILT);
-					else if (ydist < 60 && xdist < 100) DoAttack(AT_DTILT);
-					else if (ydist < 60 && xdist < 120) DoAttack(AT_FTILT);
-					else if (ydist < 60 && xdist < 170) DoAttack(AT_DATTACK);
-					else HoldTowardsTarget();
+					else if (ydist < 50 && xdist < 70) DoAttack(AT_JAB);
+					else if (ydist < 100 && xdist < 70) DoAttack(AT_UTILT);
+					else if (ydist < 60 && xdist < 90) DoAttack(AT_DTILT);
+					else if (ydist < 60 && xdist < 110) DoAttack(AT_FTILT);
+					else if (ydist < 60 && xdist < 130) DoAttack(AT_FSPECIAL);
+					else if (ydist < 60 && xdist < 150) DoAttack(AT_DATTACK);
+					else if (ydist < 60 && xdist > 180 && xdist < 260) DoAttack(AT_NSPECIAL);
+					else if (xdist < 90) HoldTowardsTarget();
 				}
 			}
 			break;
@@ -188,6 +210,11 @@ SetAttack();
 	switch (attack)
 	{
 		case AT_TAUNT:
+			taunt_down = true;
+			taunt_pressed = true;
+			break;
+		case AT_TAUNT_2:
+			down_down = true;
 			taunt_down = true;
 			taunt_pressed = true;
 			break;
