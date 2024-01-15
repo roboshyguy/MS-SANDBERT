@@ -94,7 +94,7 @@ attacking = false;
 prev_spr_dir = 1;
 
 skull = noone;
-scooted = false;
+scooted = true;
 scoot_spr_dir = 1;
 
 // fspecial
