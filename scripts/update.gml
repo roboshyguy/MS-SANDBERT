@@ -140,20 +140,61 @@ if (detect_end_of_match())
 }
 
 // ravyn
-
-if (attacking && attack == AT_FSPECIAL && (window == 10 || window == 12)) {
-	with (pHitBox) if (player_id == other && attack == other.attack && hbox_num > 2)  {
-		for (i = 0; i <= 20; i++) {
-		   can_hit[i] = false;
-		}
-		for (i = 0; i < array_length(other.grabbed); i++) {
-			if (other.grabbed[@i]) {
-				var enemy = other.grabbed[@i];
-				can_hit[enemy.player] = 1;
+if (state != PS_WALK_TURN && (!attacking || attack != AT_FTILT)) {
+	prev_spr_dir = spr_dir;
+}
+if (attacking) {
+	switch (attack) {
+		// attack_update sometimes occurs too early in a frame, so i need to do it here
+		case AT_FTILT:
+			if (prev_spr_dir != spr_dir) {
+				attack = AT_FSPECIAL_2;
+				hurtboxID.sprite_index = get_attack_value(attack, AG_HURTBOX_SPRITE);
+				spr_dir = prev_spr_dir;
+			}
+		break;
+		case AT_JAB:
+			if (state_timer < 3) {
+				var point_dir = right_down - left_down;
+				if (point_dir != 0 && point_dir != spr_dir) {
+					attack = AT_FSPECIAL_2;
+					hurtboxID.sprite_index = get_attack_value(attack, AG_HURTBOX_SPRITE);
+					spr_dir *= 1;
+				}
+			}
+		break;
+		case AT_FSPECIAL:
+		if (window == 10 || window == 12) {
+			with (pHitBox) if (player_id == other && attack == other.attack && hbox_num > 2)  {
+				for (i = 0; i <= 20; i++) {
+				   can_hit[i] = false;
+				}
+				for (i = 0; i < array_length(other.grabbed); i++) {
+					if (other.grabbed[@i]) {
+						var enemy = other.grabbed[@i];
+						can_hit[enemy.player] = 1;
+					}
+				}
 			}
 		}
+		break;
+		case AT_FSPECIAL_2:
+		scooted = false;
+		if (window == 2 && window_timer == 0) {
+			if (skull != noone) {
+				skull.fade = true;
+			}
+			skull = instance_create(x, y, "obj_article2");
+		}
+		break;
 	}
 }
+
+if (prev_state == PS_ATTACK_GROUND && state_cat != SC_HITSTUN && !scooted && (!attacking || attack != AT_FSPECIAL_2)) {
+	x -= 40 * spr_dir;
+	scooted = true;
+}
+
 var x_offset = 28;
 var y_offset = -8;
 for (i = 0; i < array_length(grabbed); i++) {

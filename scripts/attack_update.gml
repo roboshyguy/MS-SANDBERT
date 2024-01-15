@@ -516,9 +516,9 @@ switch(attack){
 		}
 	}
 	break;
-
+	
+	//ravyn
 	case AT_FSPECIAL:
-	// ravyn
 	var window_length = get_window_value(attack, window, AG_WINDOW_LENGTH);
 	var launch_frame = 8;
 	can_fast_fall = false;
@@ -639,8 +639,8 @@ switch(attack){
 	
 	}
 	
+	
 	break;
-
 	case AT_TAUNT:
 	if(window == 1){
 		switch(window_timer){
