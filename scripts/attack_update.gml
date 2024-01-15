@@ -202,7 +202,13 @@ switch(attack){
 	
 	case AT_FAIR:
 	if(window == 1 && window_time_is(10)){
-	sound_play(asset_get("sfx_bird_screech"));	
+	sound_play(asset_get("sfx_bird_screech"), 0, noone, 0.75); 
+	}
+	
+	if(window != 3){
+		can_fast_fall = false;
+	}else{
+		can_fast_fall = true;	
 	}
 	break;
 	
@@ -405,13 +411,12 @@ switch(attack){
 	case AT_USPECIAL:
 	trigger_wavebounce();
 	hud_offset = 50;
+	can_move = true;
 	if(window != 3){
 	can_fast_fall = false;
-	can_move = false;
 	can_wall_jump = true;
 	}else{
 	can_fast_fall = true;
-	can_move = true;
 	can_wall_jump = true;		
 	}
 	break;
@@ -454,16 +459,15 @@ switch(attack){
 	}
 	
 	//release
-	if(window == 2 or window == 3){
+	if(window == 2 or window == 3 or window == 4){
 		if(!special_down){
 			window = 5;
 			window_timer = 0;
 		}
 	}
 	if(!nspec_fully_charged){
-		if(window == 4 && window_time_is(get_window_value(AT_NSPECIAL, 4, AG_WINDOW_LENGTH)-1)){
+		if(window == 4 && window_time_is(1)){
 		nspec_fully_charged = true;
-		window_timer = 1;
 			if(bg_article == 0){
 			bg_article = instance_create(x, y-48, ("obj_article1"));
 			}

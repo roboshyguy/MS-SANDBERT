@@ -10,11 +10,11 @@ set_attack_value(curr_attack, AG_NUM_WINDOWS, 3);
 set_attack_value(curr_attack, AG_HURTBOX_SPRITE, sprite_get("ftilt_hurt"));
 
 set_window_value(curr_attack, 1, AG_WINDOW_TYPE, 1);
-set_window_value(curr_attack, 1, AG_WINDOW_LENGTH, 14);
+set_window_value(curr_attack, 1, AG_WINDOW_LENGTH, 12);
 set_window_value(curr_attack, 1, AG_WINDOW_ANIM_FRAMES, 7);
 set_window_value(curr_attack, 1, AG_WINDOW_HAS_SFX, 1);
 set_window_value(curr_attack, 1, AG_WINDOW_SFX, asset_get("sfx_swipe_medium1"));
-set_window_value(curr_attack, 1, AG_WINDOW_SFX_FRAME, 10);
+set_window_value(curr_attack, 1, AG_WINDOW_SFX_FRAME, 9);
 
 set_window_value(curr_attack, 2, AG_WINDOW_TYPE, 1);
 set_window_value(curr_attack, 2, AG_WINDOW_LENGTH, 3);

@@ -25,3 +25,10 @@ if (gojo_var != 0){
 	draw_sprite_ext(sprite_get("portrait_dino"), 0, gojo_x-170, gojo_y-210, 1, 1, 0, c_white, gojo_var);
 	shader_end();
 }
+
+var fx_image_index2 = get_gameplay_time() / 10;
+if(move_cooldown[AT_NSPECIAL] > 0){
+    if draw_indicator{
+	draw_sprite_ext(sprite_get("heart_hud"), fx_image_index2, x + 18, y - char_height - hud_offset - 36, 1, 1, 0, c_white, 1);
+    }
+}
