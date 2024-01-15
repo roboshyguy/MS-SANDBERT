@@ -12,11 +12,11 @@ sprite_change_offset("crouch", 32, 41);//correct
 sprite_change_offset("crouch_hurtbox", 46, 26);//correct
 sprite_change_offset("walk", 34, 54);//correct
 sprite_change_offset("walkturn", 30, 60);//correct
-sprite_change_offset("dash", 34, 43);//correct
-sprite_change_offset("dash_hurtbox", 34, 44);//correct
+sprite_change_offset("dash", 34, 45);//correct
+sprite_change_offset("dash_hurtbox", 34, 45);//correct
 sprite_change_offset("dashstart", 34, 45);//correct
-sprite_change_offset("dashstop", 34, 43);//correct
-sprite_change_offset("dashturn", 34, 43);//correct
+sprite_change_offset("dashstop", 34, 45);//correct
+sprite_change_offset("dashturn", 34, 45);//correct
 
 sprite_change_offset("jumpstart", 32, 47);//correct
 sprite_change_offset("jump", 32, 47);//correct
