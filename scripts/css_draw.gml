@@ -55,6 +55,9 @@ switch (selected_portrait) {
     case 17:
         selected_css_sprite = sprite_get("charselect_waffle");
         break;
+    case 18:
+        selected_css_sprite = sprite_get("charselect_white");
+        break;
 }
 
 currAlt = get_player_color(player);
