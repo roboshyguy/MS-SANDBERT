@@ -126,6 +126,7 @@ wily_robotmaster_img = sprite_get("Mrs_WilyCastle");
 
 three_stock = false;
 ditto_mssandbert = false;
+FireLaser = noone;
 
 
 // Animation Info

@@ -155,7 +155,7 @@ switch(attack){
 	if(window == 2){
 		switch(window_timer){
 			case 1:
-			sound_play(asset_get("sfx_boss_laser"));
+			FireLaser = sound_play(asset_get("sfx_boss_laser"));
 			break;
 		}
 	}
