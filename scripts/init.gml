@@ -217,12 +217,15 @@ nair_loop_timer = 0;
 // Interactions with synced var
 // Get the value from it and determine victory/results portraits
 var synced_var = get_synced_var(player);
-print_debug("Freshly synced_var = " + string(synced_var));
+//print_debug("Freshly synced_var = " + string(synced_var));
 selected_portrait = synced_var & 0xffff;
 num_portrait_options = 15;
 var winning_key_local = (synced_var >> 16) & 0xffff;
 // Compare against this key
 winning_key = 0x1234;
 // If we haven't won a game before, do a random portrait
-print_debug("winning_key_local = " + string(winning_key_local));
+//print_debug("winning_key_local = " + string(winning_key_local));
 random_portrait = (winning_key_local != winning_key);
+
+// Is this Sandbetty?
+ITSA_ME_SANDBETTYO = true;

@@ -78,21 +78,6 @@ switch (currAlt)
 
 draw_sprite_ext(selected_css_sprite, 0, x + 8, y + 8, 2, 2, 0, c_white, 1);
 
-// Draw the buttons
-
-prepare_shader();
-shader_end();
-
-// Left button
-draw_sprite_ext(sprite_get("css_button"), 0 + left_button_frame, x + left_button_origin_x, y + left_button_origin_y, 2, 2, 0, c_white, 1);
-// Right button
-draw_sprite_ext(sprite_get("css_button"), 2 + right_button_frame, x + right_button_origin_x, y + right_button_origin_y, 2, 2, 0, c_white, 1);
-// Dice
-draw_sprite_ext(sprite_get("css_button"), 4 + dice_button_frame, x + dice_button_origin_x, y + dice_button_origin_y, 2, 2, 0, c_white, 1);
-
-shader_start();
-prepare_shader();
-
 // Only draw buttons if allowed
 if (won_previously) {
     prepare_shader();
