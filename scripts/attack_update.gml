@@ -614,6 +614,7 @@ switch(attack){
 			case 3:
 			case 7:
 			// MOVE UP AT LEDGE
+			/*
     		if (!moved_up && free && place_meeting(x+hsp,y,asset_get("par_block"))) {
         		for (var i = 0; i < 40; i++){
             	if (!place_meeting(x+hsp,y-(i+1),asset_get("par_block"))) {
@@ -622,6 +623,7 @@ switch(attack){
             	}
         		}
     		}
+    		*/
             break;
                 
                 //cooldown stuff
@@ -635,11 +637,13 @@ switch(attack){
 		}
 			break;
 		
+		/*
 		if((window == 3 or window == 7) && !free && !has_hit && !was_parried){
 		ledge_cancel = 1;
 	}	else {
 		can_move = false;
 	}
+	*/
 	
 	}
 	
