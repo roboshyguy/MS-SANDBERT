@@ -66,6 +66,7 @@ sprite_change_offset("vfx", 118, 118);//correct
 sprite_change_offset("plat_behind", 104, 104);//correct
 
 sprite_change_offset("skull", 84, 112);//correct
+sprite_change_offset("skull_mask", 22, 56);//correct
 
 sprite_change_offset("bow", 16, 16);
 sprite_change_offset("bag_taunt", 33, 48, true);

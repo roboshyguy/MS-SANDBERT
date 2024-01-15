@@ -202,7 +202,9 @@ if (attacking) {
 }
 
 if (!scooted && (!attacking || attack != AT_FSPECIAL_2 || (window == 1 && window_timer == 0))) {
-	x -= 40 * scoot_spr_dir;
+	if (state_cat != SC_HITSTUN) {
+		x -= 40 * scoot_spr_dir;
+	}
 	scooted = true;
 }
 

@@ -1,6 +1,12 @@
 if (!hitpause) {
     timer++;
     
+    if (place_meeting(x, y, asset_get("plasma_field_obj"))) {
+    	sound_play(asset_get("sfx_clairen_hit_med"));
+    	spawn_hit_fx(floor(x), floor(y), 256);
+    	fade = true;
+    }
+    
     if (timer >= skull_length) {
         fade = true;
     }
@@ -13,7 +19,7 @@ if (!hitpause) {
         if (image_index >= 2 && !exploded) {
             with (player_id) {
                 sound_play(asset_get("sfx_mol_uspec_explode"));
-                create_hitbox(AT_FSPECIAL_2, 1, x, y);
+                create_hitbox(AT_FSPECIAL_2, 1, other.x + 4, other.y - 32);
             }
             exploded = true;
         }

@@ -1,5 +1,6 @@
 spr_dir = player_id.spr_dir;
 sprite_index = sprite_get("skull");
+mask_index = sprite_get("skull_mask");
 
 is_hittable = true;
 destroy = false;
