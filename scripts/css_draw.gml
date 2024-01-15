@@ -7,60 +7,50 @@ switch (selected_portrait) {
     case 1:
         selected_css_sprite = sprite_get("charselect_vforce");
         break;
-    
     case 2:
         selected_css_sprite = sprite_get("charselect_tdude");
         break;
-    
     case 3:
         selected_css_sprite = sprite_get("charselect_sb");
         break;
-    
     case 4:
         selected_css_sprite = sprite_get("charselect_scaurai");
         break;
-    
     case 5:
         selected_css_sprite = sprite_get("charselect_dino");
         break;
-    
     case 6:
         selected_css_sprite = sprite_get("charselect_reiga");
         break;
-    
     case 7:
         selected_css_sprite = sprite_get("charselect_finalhg");
         break;
-    
     case 8:
         selected_css_sprite = sprite_get("charselect_sandbert");
         break;
-    
     case 9:
         selected_css_sprite = sprite_get("charselect_renlira");
         break;
-    
     case 10:
         selected_css_sprite = sprite_get("charselect_chmmr");
         break;
-    
     case 11:
         selected_css_sprite = sprite_get("charselect_hyu");
         break;
-    
     case 12:
         selected_css_sprite = sprite_get("charselect_dakota");
         break;
-    
     case 13:
         selected_css_sprite = sprite_get("charselect_infinite");
         break;
-    
     case 14:
         selected_css_sprite = sprite_get("charselect_bar");
         break;
     case 15:
         selected_css_sprite = sprite_get("charselect_jh");
+        break;
+    case 16:
+        selected_css_sprite = sprite_get("charselect_snappy");
         break;
 }
 
