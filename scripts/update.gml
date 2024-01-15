@@ -179,7 +179,9 @@ if (attacking) {
 		}
 		break;
 		case AT_FSPECIAL_2:
-		scooted = false;
+		if (window == 2 && window_timer == 1) {
+			scooted = false;
+		}
 		if (window == 2 && window_timer == 0) {
 			if (skull != noone) {
 				skull.fade = true;
@@ -190,7 +192,7 @@ if (attacking) {
 	}
 }
 
-if (prev_state == PS_ATTACK_GROUND && state_cat != SC_HITSTUN && !scooted && (!attacking || attack != AT_FSPECIAL_2)) {
+if (!scooted && (!attacking || attack != AT_FSPECIAL_2 || (window == 1 && window_timer == 0))) {
 	x -= 40 * spr_dir;
 	scooted = true;
 }
