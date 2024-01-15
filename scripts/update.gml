@@ -35,10 +35,10 @@ if(get_gameplay_time() % 120 == 0){
     }
 }
 
+//randomized portraits
 //print_debug("selected_portrait = " + string(selected_portrait));
 if (detect_end_of_match())
 {
-    //randomized portraits
     if (random_portrait) {
         selected_portrait = random_func(0, num_portrait_options - 1, true);
     }
@@ -129,6 +129,18 @@ if (detect_end_of_match())
     //}
     //print_debug("synced_var = " + string(local_synced_var));
     //zset_synced_var(player, local_synced_var);
+    
+    // If at least two players exist that are Mrs. Sandbert, do the smoochin' portrait
+    var smooch_count = 0;
+    with (oPlayer) {
+        if (variable_instance_exists(self, "ITSA_ME_SANDBETTYO")) {
+            smooch_count++;
+        }
+    }
+    //print_debug("smooch_count = " + string(smooch_count));
+    if (smooch_count >= 2) {
+        set_victory_portrait(sprite_get("portrait_tehend"));
+    }
 }
 
 // Base function courtesy of Mawral, updated to account for match timer
