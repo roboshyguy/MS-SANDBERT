@@ -33,24 +33,32 @@ set_attack_value(attack, AG_NUM_WINDOWS, win_num);
 var hbox_num = 1;
 
 // These variables affect stats of move; in one place for ease of access
-var exp_pri = 2; // Fist Priority
-var exp_dmg = 8; //  Fist Damage
-var exp_ang = 361; //  Fist Angle
-var exp_flip = 6; //  Fist Angle Flipper
-var exp_kb = 10; //  Fist Knockback
-var exp_kbg = 0.5; //  Fist Knockback Growth
-var exp_hp = 11; //  Fist Hitpause
-var exp_hpg = 0.6; //  Fist Hitpause Growth
-var exp_vfx = HFX_GEN_BIG; //  Fist Visual Effect
-var exp_sfx = asset_get("sfx_blow_heavy2"); //  Fist Sound Effect
+var exp_pri = 2; // Explosion Priority
+var exp_dmg = 8; // Explosion Damage
+var exp_ang = 361; // Explosion Angle
+var exp_flip = 6; // Explosion Angle Flipper
+var exp_kb = 10; // Explosion Knockback
+var exp_kbg = 0.5; // Explosion Knockback Growth
+var exp_hp = 11; // Explosion Hitpause
+var exp_hpg = 0.6; // Explosion Hitpause Growth
+var exp_vfx = HFX_GEN_BIG; // Explosion Visual Effect
+var exp_sfx = asset_get("sfx_blow_heavy2"); // Explosion Sound Effect
 
 // Explosion
 set_hitbox_value(attack, hbox_num, HG_WINDOW, 0);
+set_hitbox_value(attack, hbox_num, HG_HITBOX_TYPE, 2);
 set_hitbox_value(attack, hbox_num, HG_LIFETIME, 5);
-set_hitbox_value(attack, hbox_num, HG_HITBOX_X, 62);
-set_hitbox_value(attack, hbox_num, HG_HITBOX_Y, -38);
-set_hitbox_value(attack, hbox_num, HG_WIDTH, 82);
-set_hitbox_value(attack, hbox_num, HG_HEIGHT, 90);
+set_hitbox_value(attack, hbox_num, HG_WIDTH, 140);
+set_hitbox_value(attack, hbox_num, HG_HEIGHT, 140);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_PARRY_STUN, true);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_IS_TRANSCENDENT, true);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_UNBASHABLE, true);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_WALL_BEHAVIOR, 1);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
+set_hitbox_value(attack, hbox_num, HG_PROJECTILE_DESTROY_EFFECT, asset_get("empty_sprite"));
 set_hitbox_value(attack, hbox_num, HG_PRIORITY, exp_pri);
 set_hitbox_value(attack, hbox_num, HG_DAMAGE, exp_dmg);
 set_hitbox_value(attack, hbox_num, HG_ANGLE, exp_ang);
