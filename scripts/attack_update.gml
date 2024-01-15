@@ -589,6 +589,9 @@ switch(attack){
 				}
 				
 			} else {
+				for (i = 0; i < array_length(grabbed); i++) {
+					grabbed[@i] = noone;
+				}
 				// Groundedness check due to attack_invisible being weird
 				if (free) {
 					set_hitbox_value(attack, 6, HG_WINDOW, 0); // Aerial Throw
