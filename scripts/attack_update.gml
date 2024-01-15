@@ -252,6 +252,10 @@ switch(attack){
 		hud_offset = 70
 		set_attack_value(AT_USTRONG, AG_CATEGORY, 1);
 	}
+	
+    if window == 2 and window_timer == 1{
+        spawn_dust_fx( x, y, 5001, 26);
+    }
 	break;
 	
 	case AT_FAIR:
@@ -516,9 +520,9 @@ switch(attack){
 		}
 	}
 	break;
-
+	
+	//ravyn
 	case AT_FSPECIAL:
-	// ravyn
 	var window_length = get_window_value(attack, window, AG_WINDOW_LENGTH);
 	var launch_frame = 8;
 	can_fast_fall = false;
@@ -639,8 +643,8 @@ switch(attack){
 	
 	}
 	
+	
 	break;
-
 	case AT_TAUNT:
 	if(window == 1){
 		switch(window_timer){

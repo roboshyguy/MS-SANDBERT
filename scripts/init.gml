@@ -91,6 +91,12 @@ times_stomped = 0;
 
 attacking = false;
 
+prev_spr_dir = 1;
+
+skull = noone;
+scooted = false;
+scoot_spr_dir = 1;
+
 // fspecial
 fist_launch_speed = 10; // The speed the FSPECIAL fist launches at [ground, air]
 fist_bounceback_speed = [3, 4]; // FSPECIAL fist hit bounceback, x, y

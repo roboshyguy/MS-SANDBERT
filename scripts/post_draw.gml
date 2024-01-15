@@ -9,6 +9,7 @@ var temp_color = c_white;
 		}else{
 			draw_sprite_ext( sprite_get("bow"), 0, x-8*spr_dir + spr_dir*cos((state_timer)/120)*(-35), y-26, spr_dir , 1, (state_timer-15)*(-4)*spr_dir , c_white, 1);
 		}
+		if (state_timer%30 == 0) {sound_play(asset_get("mfx_star"));}
 		shader_end();
 	}
 //

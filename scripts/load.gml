@@ -12,11 +12,11 @@ sprite_change_offset("crouch", 32, 41);//correct
 sprite_change_offset("crouch_hurtbox", 46, 26);//correct
 sprite_change_offset("walk", 34, 54);//correct
 sprite_change_offset("walkturn", 30, 60);//correct
-sprite_change_offset("dash", 34, 43);//correct
-sprite_change_offset("dash_hurtbox", 34, 44);//correct
+sprite_change_offset("dash", 34, 45);//correct
+sprite_change_offset("dash_hurtbox", 34, 45);//correct
 sprite_change_offset("dashstart", 34, 45);//correct
-sprite_change_offset("dashstop", 34, 43);//correct
-sprite_change_offset("dashturn", 34, 43);//correct
+sprite_change_offset("dashstop", 34, 45);//correct
+sprite_change_offset("dashturn", 34, 45);//correct
 
 sprite_change_offset("jumpstart", 32, 47);//correct
 sprite_change_offset("jump", 32, 47);//correct
@@ -36,6 +36,7 @@ sprite_change_offset("tech", 32, 47);//correct
 sprite_change_offset("jab", 30, 78, true);
 sprite_change_offset("dattack", 34, 60, true);//correct
 sprite_change_offset("ftilt", 17, 48, true);//correct
+sprite_change_offset("btilt", 36, 39, true);//correct
 sprite_change_offset("dtilt", 76, 91, true);//correct
 sprite_change_offset("utilt", 42, 70, true);//correct
 sprite_change_offset("nair", 46, 55, true);//correct
@@ -63,6 +64,8 @@ sprite_change_offset("vfx_small", 89, 89);//correct
 sprite_change_offset("vfx", 118, 118);//correct
 
 sprite_change_offset("plat_behind", 104, 104);//correct
+
+sprite_change_offset("skull", 84, 112);//correct
 
 sprite_change_offset("bow", 16, 16);
 sprite_change_offset("bag_taunt", 33, 48, true);
