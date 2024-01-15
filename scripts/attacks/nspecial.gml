@@ -1,3 +1,7 @@
+//////////////////////////////////////
+//  Ms.Sandbert N-Special by Krankees  //
+//////////////////////////////////////
+
 set_attack_value(AT_NSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_NSPECIAL, AG_SPRITE, sprite_get("nspecial"));
 set_attack_value(AT_NSPECIAL, AG_NUM_WINDOWS, 6);
@@ -77,7 +81,7 @@ set_hitbox_value(AT_NSPECIAL, 2, HG_DAMAGE, 8);
 set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE_FLIPPER, 5);
 set_hitbox_value(AT_NSPECIAL, 2, HG_ANGLE, 50);
 set_hitbox_value(AT_NSPECIAL, 2, HG_BASE_KNOCKBACK, 8);
-set_hitbox_value(AT_NSPECIAL, 2, HG_KNOCKBACK_SCALING, .45);
+set_hitbox_value(AT_NSPECIAL, 2, HG_KNOCKBACK_SCALING, .35);
 set_hitbox_value(AT_NSPECIAL, 2, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_NSPECIAL, 2, HG_HITPAUSE_SCALING, .6);
 set_hitbox_value(AT_NSPECIAL, 2, HG_VISUAL_EFFECT, bow_vfx_small);

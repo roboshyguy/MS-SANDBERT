@@ -15,3 +15,13 @@ var temp_color = c_white;
 if (attack == AT_TAUNT_2 && state == PS_ATTACK_GROUND && (window == 5 || window == 6)) {
     draw_sprite_ext( sprite_get("taunt_icons"), taunt_icon, x + 54 * spr_dir, y - 28, 2 * spr_dir, 2, 0, c_white, true );
 }
+
+
+if (gojo_var != 0){
+	gojo_var -= 0.035;
+	if(get_player_color(player) != 21){
+	shader_start();
+	}
+	draw_sprite_ext(sprite_get("portrait_dino"), 0, gojo_x-170, gojo_y-210, 1, 1, 0, c_white, gojo_var);
+	shader_end();
+}

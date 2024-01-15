@@ -90,6 +90,13 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 times_stomped = 0;
 
 nspecial_charge = 0;
+nspec_fully_charged = false;
+bg_darken_var = 0;
+gojo_var = 0;
+gojo_x = x;
+gojo_y = y;
+release_gojo = false;
+bg_article = 0;
 
 dspecial_absorb_count = 0;
 
@@ -114,6 +121,11 @@ mamizou_transform_spr = sprite_get("mamizou_compat");
 
 bbc_msg = "The biggest collab in workshop history, Mrs. Sandbert was 
 made by 30+ talented devs. WORKSHOP IS SAVED BABYYYY!!!!"
+
+wily_robotmaster_img = sprite_get("Mrs_WilyCastle");
+
+three_stock = false;
+ditto_mssandbert = false;
 
 
 // Animation Info

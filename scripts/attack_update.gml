@@ -27,7 +27,7 @@ switch(attack){
 	break;
 		
 	case AT_FTILT:
-	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH)-1)){
+	if(window == 1 && window_time_is(get_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH))){
 	sound_play(sound_get("sfx_snap"));	
 	var _snap = spawn_hit_fx( x + spr_dir * 110, y - 40, 305 );
 	}
@@ -417,6 +417,9 @@ switch(attack){
 	trigger_wavebounce();
 	if(window == 1 && window_timer == 1){
 		nspecial_charge = 0;
+		nspec_fully_charged = false;
+		bg_darken_var = 0;
+		gojo_var = 0;
 	}
 	
 	//charge
@@ -430,20 +433,20 @@ switch(attack){
 			spawn_hit_fx(x, y-30, 304);
 		sound_play(asset_get("sfx_frog_dspecial_swallow"));
 		}
-		print("test");
-		nspecial_charge += 1;
+		//print(nspecial_charge);
+		if(nspecial_charge < 5){
+			nspecial_charge += 1;
+		}
 	}
 	
-	if(window == 2 && get_window_value(AT_NSPECIAL, 2, AG_WINDOW_LENGTH)-1){
+	if(window == 2 && window_time_is(get_window_value(AT_NSPECIAL, 2, AG_WINDOW_LENGTH)-1)){
 		if(nspecial_charge < 2){
 			window_timer = 1;
 		}
 	}
-	if(window == 3 && get_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH)-1){
+	if(window == 3 && window_time_is(get_window_value(AT_NSPECIAL, 3, AG_WINDOW_LENGTH)-1)){
 		if(nspecial_charge < 4){
 			window_timer = 1;
-		}else{
-			
 		}
 	}
 	
@@ -452,6 +455,41 @@ switch(attack){
 		if(!special_down){
 			window = 5;
 			window_timer = 0;
+		}
+	}
+	if(!nspec_fully_charged){
+		if(window == 4 && window_time_is(get_window_value(AT_NSPECIAL, 4, AG_WINDOW_LENGTH)-1)){
+		nspec_fully_charged = true;
+		window_timer = 1;
+			if(bg_article == 0){
+			bg_article = instance_create(x, y-48, ("obj_article1"));
+			}
+		}
+	}
+	
+	if(window == 4 && nspec_fully_charged){
+		release_gojo = false;
+		bg_darken_var += 0.01;
+		
+		if(bg_darken_var >= 0.7){
+			release_gojo = true;
+			gojo_var = 1;
+			gojo_x = x;
+			gojo_y = y;
+			window = 5;
+			window_timer = 0;			
+		}
+		if(!special_down){
+			release_gojo = true;
+			window = 5;
+			window_timer = 0;
+		}
+		
+		if(window_time_is(get_window_value(AT_NSPECIAL, 4, AG_WINDOW_LENGTH)-1)){
+			if(special_down){
+				//print("test");
+				window_timer = 0;
+			}
 		}
 	}
 	
@@ -466,7 +504,7 @@ switch(attack){
 		}if(nspecial_charge >= 3 && nspecial_charge < 5){
 			move_cooldown[AT_NSPECIAL] = 120;
 			create_hitbox(AT_NSPECIAL, 2, x + spr_dir * 55, y - 35);			
-		}if(nspecial_charge >= 5){
+		}if(nspecial_charge <= 5){
 			move_cooldown[AT_NSPECIAL] = 120;
 			create_hitbox(AT_NSPECIAL, 3, x + spr_dir * 55, y - 35);			
 		}
@@ -540,7 +578,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir = argument_count > 3 ? argument[3] : 0;
+var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
 
 switch (name) {
     default: 

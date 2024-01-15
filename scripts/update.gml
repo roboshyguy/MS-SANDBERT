@@ -15,6 +15,25 @@ if(state == PS_CROUCH){
     	}
     }
 }
+if (get_player_stocks( player ) >= 3) {
+    three_stock = true;
+}else{
+    three_stock = false;
+}
+
+//randomized portraits
+if(get_gameplay_time() % 120 == 0){
+    //victory theme
+    music_rng = random_func(0, 10, true);
+    switch(music_rng){
+        default:
+        set_victory_theme(sound_get("lipstickBow"));
+        break;
+        case 9:
+        set_victory_theme(sound_get("fuck_you"));
+        break;
+    }
+}
 
 //print_debug("selected_portrait = " + string(selected_portrait));
 if (detect_end_of_match())
@@ -55,54 +74,53 @@ if (detect_end_of_match())
             break;
         
         case 6:
-            set_victory_portrait(sprite_get("portrait_tehend"));
-            set_victory_sidebar(sprite_get("result_small_tehend"));
-            break;
-        
-        case 7:
             set_victory_portrait(sprite_get("portrait_reiga"));
             set_victory_sidebar(sprite_get("result_small_reiga"));
             break;
         
-        case 8:
+        case 7:
             set_victory_portrait(sprite_get("portrait_finalhg"));
             set_victory_sidebar(sprite_get("result_small_finalhg"));
             break;
         
-        case 9:
+        case 8:
             set_victory_portrait(sprite_get("portrait_sandbert"));
             set_victory_sidebar(sprite_get("result_small_sandbert"));
             break;
         
-        case 10:
+        case 9:
             set_victory_portrait(sprite_get("portrait_renlira"));
             set_victory_sidebar(sprite_get("result_small_renlira"));
             break;
         
-        case 11:
+        case 10:
             set_victory_portrait(sprite_get("portrait_chmmr"));
             set_victory_sidebar(sprite_get("result_small_chmmr"));
             break;
         
-        case 12:
+        case 11:
             set_victory_portrait(sprite_get("portrait_hyu"));
             set_victory_sidebar(sprite_get("result_small_hyu"));
             break;
         
-        case 13:
+        case 12:
             set_victory_portrait(sprite_get("portrait_dakota"));
             set_victory_sidebar(sprite_get("result_small_dakota"));
             break;
         
-        case 14:
+        case 13:
             set_victory_portrait(sprite_get("portrait_infinite"));
             set_victory_sidebar(sprite_get("result_small_infinite"));
             break;
         
-        case 15:
+        case 14:
             set_victory_portrait(sprite_get("portrait_bar"));
             set_victory_sidebar(sprite_get("result_small_bar"));
             break;
+    }
+    
+    if(three_stock){
+        set_victory_portrait(sprite_get("portrait_irae"));
     }
     // For next match, allow user to select portrait
     //var local_synced_var = selected_portrait

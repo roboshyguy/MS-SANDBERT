@@ -25,42 +25,38 @@ switch (selected_portrait) {
         break;
     
     case 6:
-        selected_css_sprite = sprite_get("charselect_tehend");
-        break;
-    
-    case 7:
         selected_css_sprite = sprite_get("charselect_reiga");
         break;
     
-    case 8:
+    case 7:
         selected_css_sprite = sprite_get("charselect_finalhg");
         break;
     
-    case 9:
+    case 8:
         selected_css_sprite = sprite_get("charselect_sandbert");
         break;
     
-    case 10:
+    case 9:
         selected_css_sprite = sprite_get("charselect_renlira");
         break;
     
-    case 11:
+    case 10:
         selected_css_sprite = sprite_get("charselect_chmmr");
         break;
     
-    case 12:
+    case 11:
         selected_css_sprite = sprite_get("charselect_hyu");
         break;
     
-    case 13:
+    case 12:
         selected_css_sprite = sprite_get("charselect_dakota");
         break;
     
-    case 14:
+    case 13:
         selected_css_sprite = sprite_get("charselect_infinite");
         break;
     
-    case 15:
+    case 14:
         selected_css_sprite = sprite_get("charselect_bar");
         break;
 }
@@ -69,7 +65,7 @@ currAlt = get_player_color(player);
 switch (currAlt)
 {
     // nyaw alt
-    case 20:
+    case 21:
         prepare_shader();
         shader_end();
 		FlagPart(make_colour_rgb(85, 205, 252), selected_css_sprite, 1, 0); // mayablue
