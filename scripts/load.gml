@@ -50,7 +50,7 @@ sprite_change_offset("nspecial", 102, 118, true);//correct
 sprite_change_offset("nspecial_red", 28, 7);//
 sprite_change_offset("nspecial_blue", 39, 18);//
 sprite_change_offset("nspecial_purple", 85, 12);//
-//sprite_change_offset("fspecial", 32, 47, true);
+sprite_change_offset("fspecial", 32, 60, true);//correct
 sprite_change_offset("uspecial", 42, 57, true);//correct
 sprite_change_offset("dspecial", 32, 60, true);//correct
 sprite_change_offset("dspecial_2", 32, 60, true);//correct

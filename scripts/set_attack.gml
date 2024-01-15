@@ -24,3 +24,9 @@ if (attack == AT_TAUNT && (right_down or left_down)) {
     attack = AT_EXTRA_2;    
 }
 
+if (attack == AT_FSPECIAL) {
+    reset_attack_value(attack, AG_OFF_LEDGE);
+    reset_attack_value(attack, AG_NUM_WINDOWS);
+    reset_hitbox_value(attack, 5, HG_WINDOW);
+    reset_hitbox_value(attack, 6, HG_WINDOW);
+}

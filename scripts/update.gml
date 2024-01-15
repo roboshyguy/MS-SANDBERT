@@ -1,5 +1,7 @@
 //
 
+attacking = (state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND);
+
 if(state == PS_PARRY){
     if(state_timer == 1){
     	if(!hitpause){
@@ -145,6 +147,64 @@ if (detect_end_of_match())
     if (smooch_count >= 2) {
         set_victory_portrait(sprite_get("portrait_tehend"));
     }
+}
+
+// ravyn
+
+if (attacking && attack == AT_FSPECIAL && (window == 10 || window == 12)) {
+	with (pHitBox) if (player_id == other && attack == other.attack && hbox_num > 2)  {
+		for (i = 0; i <= 20; i++) {
+		   can_hit[i] = false;
+		}
+		for (i = 0; i < array_length(other.grabbed); i++) {
+			if (other.grabbed[@i]) {
+				var enemy = other.grabbed[@i];
+				can_hit[enemy.player] = 1;
+			}
+		}
+	}
+}
+var x_offset = 28;
+var y_offset = -8;
+for (i = 0; i < array_length(grabbed); i++) {
+	if (grabbed[@i]) {
+		var enemy = grabbed[@i];
+		with (enemy) {
+	        set_state(PS_HITSTUN);
+	        can_jump = false;
+	        can_shield = false;
+	        can_attack = false;
+	        can_strong = false;
+	        can_wall_jump = false;
+	        can_fast_fall = false;
+	    }
+	   	enemy.hsp = 0;
+		enemy.vsp = 0;
+		enemy.hitpause = true;
+		enemy.hitstop = 1;
+		enemy.x = x + x_offset * spr_dir;
+		enemy.y = y + y_offset;
+		enemy.grabbed_invisible = true;
+	}
+}
+
+var array_empty = true;
+for (i = 0; i < array_length(grabbed); i++) {
+	if (grabbed[@i] != noone) { 
+		array_empty = false;
+		var enemy = grabbed[@i];
+		if (enemy.state_cat != SC_HITSTUN 
+		|| enemy.last_player != player 
+		|| enemy.last_attack != AT_FSPECIAL
+		|| enemy.last_hbox_num <= 1
+		|| enemy.last_hbox_num >= 5
+		|| !attacking) {
+			grabbed[@i] = noone;
+		}
+	}
+}
+if (array_empty) {
+    grabbed = [];
 }
 
 // Base function courtesy of Mawral, updated to account for match timer

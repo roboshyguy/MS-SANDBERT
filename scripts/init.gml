@@ -89,6 +89,18 @@ bow_vfx_big = hit_fx_create(sprite_get("vfx"), 21);
 // Variables
 times_stomped = 0;
 
+attacking = false;
+
+// fspecial
+fist_launch_speed = 10; // The speed the FSPECIAL fist launches at [ground, air]
+fist_bounceback_speed = [3, 4]; // FSPECIAL fist hit bounceback, x, y
+fist_hop_speed = 1; // The speed FSPECIAL fist hops
+grab_float_max_speed = [5, 5, 6.5]; // Up, down, horizontal
+grab_float_accel = [0.6, 0.6, 0.8]; // Up, down, horizontal
+grab_float_deccel = [0.4, 0.4]; // Vertical, horizontal
+grab_launch_speed = 8;
+grabbed = [];
+
 nspecial_charge = 0;
 nspec_fully_charged = false;
 bg_darken_var = 0;

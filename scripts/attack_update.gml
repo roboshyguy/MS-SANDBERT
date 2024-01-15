@@ -518,6 +518,90 @@ switch(attack){
 	}
 	break;
 
+	case AT_FSPECIAL:
+	// ravyn
+	var window_length = get_window_value(attack, window, AG_WINDOW_LENGTH);
+	var launch_frame = 8;
+	can_fast_fall = false;
+	if (!hitpause) {
+		switch (window) {
+			case 1:
+				if (window_timer == window_length) {
+					if (!special_down) {
+						window = 6;
+						window_timer = 0;
+						set_attack_value(attack, AG_NUM_WINDOWS, 8);
+					}
+				}
+			break;
+			case 2:
+			hsp = 0;
+			vsp = min(vsp, -fist_hop_speed);
+			if (window_timer == window_length) {
+				hsp = fist_launch_speed * spr_dir;
+				vsp = min(vsp, 0);
+			}
+			break;
+			case 3:
+				vsp = min(vsp, 0);
+			break;
+			break;
+			case 5:
+			if (window_timer == 1) {
+				destroy_hitboxes()
+				hsp = -fist_bounceback_speed[0] * spr_dir;
+				vsp = -fist_bounceback_speed[1];
+			}
+			break;
+			case 6:
+			if (window_timer != window_length) {
+				break;
+			}
+			case 7:
+				hsp = grab_launch_speed * spr_dir;
+				vsp = min(vsp, 0);
+			break;
+			case 9:
+			if (window_timer == 1) {
+				destroy_hitboxes();
+			}
+			case 10:
+			case 11:
+			case 12:
+			case 13:
+			set_attack_value(attack, AG_OFF_LEDGE, true);
+			fall_through = true;
+			if (window != 13 || window_timer < window_length) {
+				if (up_down) {
+					vsp = lerp(vsp, -grab_float_max_speed[0], grab_float_accel[0])
+				} else if (down_down) {
+					vsp = lerp(vsp, grab_float_max_speed[1], grab_float_accel[1]);
+				} else {
+					vsp = lerp(vsp, 0, grab_float_deccel[0]);
+				}
+				
+				if (left_down) {
+					hsp = lerp(vsp, -grab_float_max_speed[2], grab_float_accel[2]);
+				} else if (right_down) {
+					hsp = lerp(vsp, grab_float_max_speed[2], grab_float_accel[2]);
+				} else {
+					hsp = lerp(vsp, 0, grab_float_deccel[1]);
+				}
+				
+			} else {
+				// Groundedness check due to attack_invisible being weird
+				if (free) {
+					set_hitbox_value(attack, 6, HG_WINDOW, 0); // Aerial Throw
+				} else {
+					set_hitbox_value(attack, 5, HG_WINDOW, 0); // Grounded Throw
+				}
+			}
+			break;
+		}
+	}
+	
+	break;
+
 	case AT_TAUNT:
 	if(window == 1){
 		switch(window_timer){
