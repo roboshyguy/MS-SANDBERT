@@ -14,7 +14,7 @@ fade_timer = 0;
 explode = false;
 fade = false;
 
-skull_length = 20;
+skull_length = 40;
 fade_length = 20;
 explode_length = 26;
 exploded = false;
