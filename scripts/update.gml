@@ -179,8 +179,9 @@ if (attacking) {
 		}
 		break;
 		case AT_FSPECIAL_2:
-		if (window == 2 && window_timer == 1) {
-			scooted = false;
+		scooted = false;
+		if (window > 1 || window_timer > 0) {
+			scoot_spr_dir = spr_dir;
 		}
 		if (window == 2 && window_timer == 0) {
 			if (skull != noone) {
@@ -193,7 +194,7 @@ if (attacking) {
 }
 
 if (!scooted && (!attacking || attack != AT_FSPECIAL_2 || (window == 1 && window_timer == 0))) {
-	x -= 40 * spr_dir;
+	x -= 40 * scoot_spr_dir;
 	scooted = true;
 }
 
