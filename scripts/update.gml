@@ -113,6 +113,10 @@ if (detect_end_of_match())
             set_victory_portrait(sprite_get("portrait_snappy"));
             set_victory_sidebar(sprite_get("result_small_snappy"));
             break;
+        case 17:
+            set_victory_portrait(sprite_get("portrait_waffle"));
+            set_victory_sidebar(sprite_get("result_small_waffle"));
+            break;
     }
     
     if(three_stock){
