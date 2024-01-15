@@ -12,7 +12,7 @@ var win_num = 1;
 set_window_value(attack, win_num, AG_WINDOW_LENGTH, 6);
 set_window_value(attack, win_num, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(attack, win_num, AG_WINDOW_HAS_SFX, 1);
-set_window_value(attack, win_num, AG_WINDOW_SFX, asset_get("sfx_orca_absorb"));
+set_window_value(attack, win_num, AG_WINDOW_SFX, sound_get("mssandbert_thumbtaunt_1"));
 set_window_value(attack, win_num, AG_WINDOW_SFX_FRAME, get_window_value(attack, win_num, AG_WINDOW_LENGTH) - 1);
 
 win_num++;
