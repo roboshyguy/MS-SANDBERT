@@ -529,17 +529,13 @@ switch(attack){
 	if (!hitpause) {
 		switch (window) {
 			case 1:
-			if(window_timer == 1){
-				fspecial_ledge_cancel = 0;
-				moved_up = false;
-			}
-				if (window_timer == window_length) {
-					if (!special_down) {
-						window = 6;
-						window_timer = 0;
-						set_attack_value(attack, AG_NUM_WINDOWS, 8);
-					}
+			if (window_timer == window_length) {
+				if (!special_down) {
+					window = 6;
+					window_timer = 0;
+					set_attack_value(attack, AG_NUM_WINDOWS, 8);
 				}
+			}
 			break;
 			case 2:
 			hsp = 0;
@@ -614,26 +610,25 @@ switch(attack){
 			case 3:
 			case 7:
 			// MOVE UP AT LEDGE
-			/*
-    		if (!moved_up && free && place_meeting(x+hsp,y,asset_get("par_block"))) {
-        		for (var i = 0; i < 40; i++){
-            	if (!place_meeting(x+hsp,y-(i+1),asset_get("par_block"))) {
-                y -= i;
-                moved_up = true;
-            	}
-        		}
-    		}
-    		*/
+    		if (free && !moved_up && place_meeting(x + hsp, y + vsp, asset_get("par_block"))) {
+                for (var i = 0; i < 20; i++) {
+                    if (!place_meeting(x + hsp, y - (i + 1), asset_get("par_block"))) {
+                        y -= i + 1;
+                        moved_up = true;
+                        break;
+                    }
+                }
+            }
+    		
             break;
-                
-                //cooldown stuff
-                case 4:
-                case 5:
-                case 8:
-                case 14:
-                case 15:
-                move_cooldown[AT_FSPECIAL] = 90;
-                break;
+            //cooldown stuff
+            case 4:
+            case 5:
+            case 8:
+            case 14:
+            case 15:
+            move_cooldown[AT_FSPECIAL] = 90;
+            break;
 		}
 			break;
 		
@@ -716,7 +711,7 @@ var dfg; //fg_sprite value
 var dfa = 0; //draw_angle value
 var dust_color = 0;
 var x = argument[0], y = argument[1], name = argument[2];
-var dir; if (argument_count > 3) dir = argument[3]; else dir = 0;
+var dir = argument_count > 3 ? argument[3] : 0;
 
 switch (name) {
     default: 

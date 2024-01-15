@@ -28,6 +28,8 @@ if (attack == AT_TAUNT && left_down) {
 }
 
 if (attack == AT_FSPECIAL) {
+    fspecial_ledge_cancel = 0;
+	moved_up = false;
     reset_attack_value(attack, AG_OFF_LEDGE);
     reset_attack_value(attack, AG_NUM_WINDOWS);
     reset_hitbox_value(attack, 5, HG_WINDOW);
