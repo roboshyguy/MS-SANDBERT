@@ -16,10 +16,10 @@ if(state == PS_CROUCH){
     }
 }
 
+//randomized portraits
 //print_debug("selected_portrait = " + string(selected_portrait));
 if (detect_end_of_match())
 {
-    //randomized portraits
     if (random_portrait) {
         selected_portrait = random_func(0, num_portrait_options - 1, true);
     }
@@ -55,51 +55,46 @@ if (detect_end_of_match())
             break;
         
         case 6:
-            set_victory_portrait(sprite_get("portrait_tehend"));
-            set_victory_sidebar(sprite_get("result_small_tehend"));
-            break;
-        
-        case 7:
             set_victory_portrait(sprite_get("portrait_reiga"));
             set_victory_sidebar(sprite_get("result_small_reiga"));
             break;
         
-        case 8:
+        case 7:
             set_victory_portrait(sprite_get("portrait_finalhg"));
             set_victory_sidebar(sprite_get("result_small_finalhg"));
             break;
         
-        case 9:
+        case 8:
             set_victory_portrait(sprite_get("portrait_sandbert"));
             set_victory_sidebar(sprite_get("result_small_sandbert"));
             break;
         
-        case 10:
+        case 9:
             set_victory_portrait(sprite_get("portrait_renlira"));
             set_victory_sidebar(sprite_get("result_small_renlira"));
             break;
         
-        case 11:
+        case 10:
             set_victory_portrait(sprite_get("portrait_chmmr"));
             set_victory_sidebar(sprite_get("result_small_chmmr"));
             break;
         
-        case 12:
+        case 11:
             set_victory_portrait(sprite_get("portrait_hyu"));
             set_victory_sidebar(sprite_get("result_small_hyu"));
             break;
         
-        case 13:
+        case 12:
             set_victory_portrait(sprite_get("portrait_dakota"));
             set_victory_sidebar(sprite_get("result_small_dakota"));
             break;
         
-        case 14:
+        case 13:
             set_victory_portrait(sprite_get("portrait_infinite"));
             set_victory_sidebar(sprite_get("result_small_infinite"));
             break;
         
-        case 15:
+        case 14:
             set_victory_portrait(sprite_get("portrait_bar"));
             set_victory_sidebar(sprite_get("result_small_bar"));
             break;
@@ -111,6 +106,18 @@ if (detect_end_of_match())
     //}
     //print_debug("synced_var = " + string(local_synced_var));
     //zset_synced_var(player, local_synced_var);
+    
+    // If at least two players exist that are Mrs. Sandbert, do the smoochin' portrait
+    var smooch_count = 0;
+    with (oPlayer) {
+        if (variable_instance_exists(self, "ITSA_ME_SANDBETTYO")) {
+            smooch_count++;
+        }
+    }
+    //print_debug("smooch_count = " + string(smooch_count));
+    if (smooch_count >= 2) {
+        set_victory_portrait(sprite_get("portrait_tehend"));
+    }
 }
 
 // Base function courtesy of Mawral, updated to account for match timer
