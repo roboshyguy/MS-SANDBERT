@@ -2,7 +2,7 @@ var playerAlt = "currAlt" in self ? currAlt : get_player_color(player);
 switch (playerAlt)
 {
 	// nyaw alt
-	case 21:
+	case 24:
 	{
 		AltOpacity(1, 0, playerAlt);
 	}

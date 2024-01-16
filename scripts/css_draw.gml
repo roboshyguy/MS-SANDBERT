@@ -64,7 +64,7 @@ currAlt = get_player_color(player);
 switch (currAlt)
 {
     // nyaw alt
-    case 21:
+    case 24:
         prepare_shader();
         shader_end();
 		FlagPart(make_colour_rgb(85, 205, 252), selected_css_sprite, 1, 0); // mayablue
