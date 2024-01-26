@@ -249,3 +249,7 @@ random_portrait = (winning_key_local != winning_key);
 
 // Is this Sandbetty?
 ITSA_ME_SANDBETTYO = true;
+
+//Genesis stuff
+outlineR = 0;
+outlineDirection = 0;

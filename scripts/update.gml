@@ -251,6 +251,23 @@ if (array_empty) {
     grabbed = [];
 }
 
+//Genesis stuff
+if (get_player_color(player) == 26) {
+    if (outlineDirection == 0) {
+        outlineR += 6.3 * 0.5;
+    } else {
+        outlineR -= 6.3;
+    }
+    if (outlineR > 150) {
+        outlineDirection = 1;
+    } else if (outlineR < 100) {
+        outlineDirection = 0;
+    }
+    
+    set_color_profile_slot( 26, 0, floor(outlineR), 10, 0 ); //Bow
+    init_shader();
+}
+
 // Base function courtesy of Mawral, updated to account for match timer
 #define detect_end_of_match
 var team_stocks = [0, 0, 0, 0];

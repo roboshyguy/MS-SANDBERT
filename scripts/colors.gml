@@ -10,7 +10,7 @@ set_color_profile_slot_range( 1, 1, 1, 60 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 26 );
+set_num_palettes( 27 );
 
 // Robo Alt
 set_color_profile_slot( 1, 0, 255, 224, 150 ); //Bow
@@ -111,6 +111,10 @@ set_color_profile_slot( 24, 1, 255, 255, 255 ); //Body
 // Inner Alt
 set_color_profile_slot( 25, 0, 255, 251, 0 ); //Bow
 set_color_profile_slot( 25, 1, 145, 76, 23 ); //Body
+
+// Genesis
+set_color_profile_slot( 26, 0, 130, 0, 0 ); //Bow
+set_color_profile_slot( 26, 1, 50, 50, 65 ); //Body
 
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
