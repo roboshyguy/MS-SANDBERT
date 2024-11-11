@@ -3,7 +3,7 @@ var currAlt = get_player_color(player);
 switch (currAlt)
 {
 	// nyaw alt
-	case 24:
+	case 21:
 		coins_earned = 999999;
 		coins_drawn = 0;
 	
